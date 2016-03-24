@@ -26,7 +26,7 @@ userSchema.statics.register = function(user, cb) {
   var username = user.username;
   var password = user.password;
   User.findOne({username: username}, function(err, user){
-    if(err || user) return cb(err || 'username already taken.');
+    if(err || user) return cb(err || 'Username already taken.');
     bcrypt.genSalt(10, function(err1, salt) {
       bcrypt.hash(password, salt, null, function(err2, hash) {
         if(err1 || err2) return cb(err1 || err2);
@@ -35,13 +35,9 @@ userSchema.statics.register = function(user, cb) {
         newUser.password = hash;
         newUser.save(function(err, savedUser){
           savedUser.password = null;
-          // cb(err, savedUser);
-          console.log("HERE??? \N");
           User.findOne({username: newUser.username}, function(err, dbUser) {
-            console.log("HERE??? \n");
-            if(err || !dbUser) return cb(err || 'Incorrect username or password.');
+            if(err || !dbUser) return cb(err || 'Registration error');
               dbUser.password = null;
-              console.log("HERE???6 \n");
               cb(null, dbUser);
           });
         });
