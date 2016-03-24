@@ -12,32 +12,32 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
 // Services: 
-app.service('Todo', function($http) {
-  this.todos = function() {
-    console.log("this.todos \n");
-    return $http.get('/todos').then(res => {
+app.service('Story', function($http) {
+  this.stories = function() {
+    console.log("this.stories \n");
+    return $http.get('/stories').then(res => {
       this.data = res.data; 
     }); 
   }; 
 
-  this.getTodos = function(cb) {
-    console.log("this.getTodos \n");
-    return $http.get('/todos').then(res => {
+  this.getStories = function(cb) {
+    console.log("this.getStories \n");
+    return $http.get('/stories').then(res => {
       this.data = res.data; 
       cb();
     }); 
   }
 
-  this.add = function(todo) {
-    return $http.post('/todos', todo)
+  this.add = function(story) {
+    return $http.post('/stories', story)
   };
 
-  this.toggle = function(todo) {
-    return $http.put(`/todos/${todo}`)
+  this.toggle = function(story) {
+    return $http.put(`/stories/${story}`)
   };
 
-  this.remove = function(todo) {
-    return $http.delete(`/todos/${todo}`)
+  this.remove = function(story) {
+    return $http.delete(`/stories/${story}`)
   };
 });
 
@@ -63,25 +63,25 @@ app.service('Auth', function($http, $state, $localStorage, $rootScope) {
 });
 
 // Run: 
-app.run(function(Auth, Todo, $rootScope){
+app.run(function(Auth, Story, $rootScope){
   Auth.user();
-  Todo.todos();
-  $rootScope.todos = Todo.data; 
+  Story.stories();
+  $rootScope.stories = Story.data; 
 });
 
 
 // Controllers: 
-app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, Auth, Todo){
+app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, Auth, Story){
   
   // User Related: 
   $rootScope.user = $localStorage.token;
   if ($rootScope.user) {
     $rootScope.username = $rootScope.user.config.data.username; 
   };
-  $rootScope.showlogin = false; 
-  $scope.toggleshowlogin = function(){
-    $rootScope.showlogin = !$rootScope.showlogin;
-  }
+  // $rootScope.showlogin = false; 
+  // $scope.toggleshowlogin = function(){
+  //   $rootScope.showlogin = !$rootScope.showlogin;
+  // }
 
   $scope.register = function(){
     console.log($scope.regpassword, $scope.regconfirmpassword, "\n Register! Scope password! \n");
@@ -127,11 +127,11 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
   }
 
 
-  // Todo Related:
-  $scope.getTodos = Todo.getTodos(function(){
+  // Story Related:
+  $scope.getStories = Story.getStories(function(){
     console.log("mainCtrl ctrl");
-    $rootScope.todos = Todo.data; 
-    $scope.todos = $rootScope.todos;
+    $rootScope.stories = Story.data; 
+    $scope.stories = $rootScope.stories;
   });
 
   $scope.sort = function(key){
@@ -143,19 +143,19 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
     }
   };
 
-  $scope.addTodo = function(todo){
+  $scope.addStory = function(story){
     var newObj; 
-    if (todo) {
-      var description = todo.description ? todo.description : 'default description';
+    if (story) {
+      var description = story.description ? story.description : 'default description';
       newObj = {
         description: description, 
         date: Date.now(), 
         iscomplete: false, 
-        due: todo.due
+        due: story.due
       }
       
-      $scope.todos.push(newObj); 
-      $scope.todo.description = " "; 
+      $scope.stories.push(newObj); 
+      $scope.story.description = " "; 
       
     } else {
       newObj = {
@@ -164,19 +164,19 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
         iscomplete: false
       }
     }  
-    Todo.add(newObj); 
+    Story.add(newObj); 
   };
 
-  $scope.toggle = function(todo){
-    var realIndex = $scope.todos.indexOf(todo); 
-    $scope.todos[realIndex].iscomplete = !$scope.todos[realIndex].iscomplete;
-    Todo.toggle(todo._id.toString()); 
+  $scope.toggle = function(story){
+    var realIndex = $scope.stories.indexOf(story); 
+    $scope.stories[realIndex].iscomplete = !$scope.stories[realIndex].iscomplete;
+    Story.toggle(story._id.toString()); 
   }
 
-  $scope.remove = function(todo){
-    var realIndex = $scope.todos.indexOf(todo); 
-    $scope.todos.splice(realIndex, 1);
-    Todo.remove(todo._id.toString()); 
+  $scope.remove = function(story){
+    var realIndex = $scope.stories.indexOf(story); 
+    $scope.stories.splice(realIndex, 1);
+    Story.remove(story._id.toString()); 
   }
 
 
