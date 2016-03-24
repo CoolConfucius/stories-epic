@@ -5,11 +5,12 @@ var moment = require('moment');
 var Story; 
 
 var storySchema = mongoose.Schema({
-  title: { type: String}, 
+  title: { type: String }, 
   startdate: { type: Date, default: Date.now() },
   long: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
   short: { type: String, default: moment().format('MM/DD/YYYY') }, 
-  isprivate: { type: Boolean } 
+  isprivate: { type: Boolean }, 
+  snippets: []
 });
 
 storySchema.statics.add = function (story, cb) {
