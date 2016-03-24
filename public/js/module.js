@@ -144,28 +144,29 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
     }
   };
 
-  $scope.addStory = function(story){
-    var newObj; 
-    if (story) {
-      var description = story.description ? story.description : 'default description';
-      newObj = {
-        description: description, 
-        date: Date.now(), 
-        iscomplete: false, 
-        due: story.due
-      }
+  $scope.openstory = function(story){
+    console.log(story, "here's the story");
+    // var newObj; 
+    // if (story) {
+    //   var description = story.description ? story.description : 'default description';
+    //   newObj = {
+    //     description: description, 
+    //     date: Date.now(), 
+    //     iscomplete: false, 
+    //     due: story.due
+    //   }
       
-      $scope.stories.push(newObj); 
-      $scope.story.description = " "; 
+    //   $scope.stories.push(newObj); 
+    //   $scope.story.description = " "; 
       
-    } else {
-      newObj = {
-        description: "default description", 
-        date: Date.now(), 
-        iscomplete: false
-      }
-    }  
-    Story.add(newObj); 
+    // } else {
+    //   newObj = {
+    //     description: "default description", 
+    //     date: Date.now(), 
+    //     iscomplete: false
+    //   }
+    // }  
+    // Story.add(newObj); 
   };
 
   $scope.toggle = function(story){

@@ -2,14 +2,14 @@
 <form id="formRegister" class="col-xs-8 col-xs-offset-2">
   <div class="form-group"><span class="requiredField"></span>
     <label>Story Title</label>
-    <input ng-model="newstorytitle" type="text" required="required" class="form-control"/>
+    <input ng-model="newstory.title" type="text" required="required" class="form-control"/>
   </div>
-  <select name="isprivate">
+  <select name="isprivate" ng-model="newstory.isprivate" value="Public">
     <option name="Public" value="Public">Public</option>
     <option name="Private" value="Private">Private</option>
   </select>
   <h3>Starting Snippet: </h3>
-  <textarea ng-model="newstartsnippet" name="" id="" cols="30" rows="10"></textarea>
+  <textarea ng-model="newstory.startsnippet" name="" id="" cols="30" rows="10"></textarea>
   
-  <button ng-click="openstory()" type="submit" class="btn btn-default">Publish</button>
+  <button ng-click="openstory(newstory)" type="submit" class="btn btn-default">Publish</button>
 </form>
