@@ -7,6 +7,7 @@ var Story;
 var storySchema = mongoose.Schema({
   title: { type: String }, 
   startedby: { type: String }, 
+  userid: { type: String }, 
   startdate: { type: Date, default: Date.now() },
   long: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
   short: { type: String, default: moment().format('MM/DD/YYYY') }, 
