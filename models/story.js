@@ -2,35 +2,23 @@
 
 var mongoose = require('mongoose');
 var moment = require('moment');
-var Todo; 
+var Story; 
 
-var todoSchema = mongoose.Schema({
-  description: { type: String}, 
+var storySchema = mongoose.Schema({
+  title: { type: String}, 
   date: { type: Date, default: Date.now() },
   long: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
   short: { type: String, default: moment().format('MM/DD/YYYY') }, 
-  iscomplete: { type: Boolean, default: false }, 
-  due: { type: Date },
-  duelong: { type: String }, 
-  dueshort: { type: String }
+  isprivate: { type: Boolean } 
 });
 
-todoSchema.statics.add = function (todo, cb) {
-  console.log("carete todo", todo);
-  var duelong = ''; 
-  var dueshort = ''; 
-  if (todo.due) {
-    duelong = moment(todo.due).format('MM/DD/YYYY, h:mm a');
-    dueshort = moment(todo.due).format('MM/DD/YYYY');
-  };
-  Todo.create({
-    description: todo.description,
-    due: todo.due,
-    duelong: duelong,
-    dueshort: dueshort
+storySchema.statics.add = function (Story, cb) {
+  Story.create({
+    title: Story.title,
+    isprivate: Story.isprivate
   }, cb);
 };
 
-Todo = mongoose.model('Todo', todoSchema); 
+Story = mongoose.model('Story', storySchema); 
 
-module.exports = Todo; 
+module.exports = Story; 
