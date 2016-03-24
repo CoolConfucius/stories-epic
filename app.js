@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/meanauth'
+var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/storiesepic'
 var mongoose = require('mongoose');
 mongoose.connect(mongoUrl, function(err) {
   console.log(err || `Connected to MongoDB: ${mongoUrl}`);
