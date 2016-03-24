@@ -4,12 +4,18 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-node');
 var jwt = require('jwt-simple');
 
+var Story = require('../models/story');
+var Snippet = require('../models/snippet');
+
 var Schema = mongoose.Schema;
 var User;
 
 var userSchema = Schema({
   username:{ type: String, required: true, unique: true },
-  password:{ type: String, required: true }
+  password:{ type: String, required: true }, 
+  stories: [{ type: mongoose.Schema.Types.ObjectId, ref: "story" }],
+  snippets: [{ type: mongoose.Schema.Types.ObjectId, ref: "snippet" }],
+  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "story" }]
 });
 
 userSchema.methods.token = function() {

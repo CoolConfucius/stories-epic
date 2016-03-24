@@ -1,0 +1,15 @@
+<h3 class="col-xs-8 col-xs-offset-2">Opening a Story</h3>
+<form id="formRegister" class="col-xs-8 col-xs-offset-2">
+  <div class="form-group"><span class="requiredField"></span>
+    <label>Story Title</label>
+    <input ng-model="newstorytitle" type="text" required="required" class="form-control"/>
+  </div>
+  <select ng-model="newstoryisprivate">
+    <option value="0">Public</option>
+    <option value="1">Private</option>
+  </select>
+  <h3>Starting Snippet: </h3>
+  <textarea ng-model="newstartsnippet" name="" id="" cols="30" rows="10"></textarea>
+  
+  <button ng-click="openstory()" type="submit" class="btn btn-default">Publish</button>
+</form>
