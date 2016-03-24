@@ -13,6 +13,13 @@ var User;
 var userSchema = Schema({
   username:{ type: String, required: true, unique: true },
   password:{ type: String, required: true }, 
+  aboutme: { type: String }, 
+  age: { type: Number }, 
+  birthday: { type: Date }, 
+  gender: { type: String }, 
+  location: { type: String }, 
+  contactinfo: { type: String }, 
+  interests: { type: String }, 
   stories: [{ type: mongoose.Schema.Types.ObjectId, ref: "story" }],
   snippets: [{ type: mongoose.Schema.Types.ObjectId, ref: "snippet" }],
   favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "story" }]
