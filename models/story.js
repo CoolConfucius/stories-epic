@@ -12,10 +12,10 @@ var storySchema = mongoose.Schema({
   isprivate: { type: Boolean } 
 });
 
-storySchema.statics.add = function (Story, cb) {
+storySchema.statics.add = function (story, cb) {
   Story.create({
-    title: Story.title,
-    isprivate: Story.isprivate
+    title: story.title,
+    isprivate: story.isprivate
   }, cb);
 };
 
