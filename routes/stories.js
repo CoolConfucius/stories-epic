@@ -14,12 +14,12 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/', function(req, res, next) {
-  console.log("post story", req.body);
-  Story.add(req.body, function(err, story){
-    res.send(err || story);
-  });
-});
+// router.post('/', function(req, res, next) {
+//   console.log("post story", req.body);
+//   Story.add(req.body, function(err, story){
+//     res.send(err || story);
+//   });
+// });
 
 router.put('/:id', function(req, res, next) {
   console.log("post story", req.params.id);
