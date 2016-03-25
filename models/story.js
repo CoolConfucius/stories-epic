@@ -13,6 +13,7 @@ var storySchema = mongoose.Schema({
   short: { type: String, default: moment().format('MM/DD/YYYY') }, 
   isprivate: { type: Boolean }, 
   views: { type: Number, default: 1 }, 
+  startsnippet: { type: String }, 
   snippets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Snippet" }]
 });
 

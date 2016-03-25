@@ -145,31 +145,27 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
   };
 
   $scope.newstory = {
-    isprivate: "Public"
+    title: "Default title",
+    isprivate: "Public",
+    startsnippet: "Default starting snippet."
   }
 
   $scope.openstory = function(story){
-    console.log(story, "here's the story");
-    // var newObj; 
-    // if (story) {
-    //   var description = story.description ? story.description : 'default description';
-    //   newObj = {
-    //     description: description, 
-    //     date: Date.now(), 
-    //     iscomplete: false, 
-    //     due: story.due
-    //   }
-      
-    //   $scope.stories.push(newObj); 
-    //   $scope.story.description = " "; 
-      
-    // } else {
-    //   newObj = {
-    //     description: "default description", 
-    //     date: Date.now(), 
-    //     iscomplete: false
-    //   }
-    // }  
+    // console.log(story, "here's the story");
+    var newObj; 
+    // var description = story.description ? story.description : 'default description';
+    newObj = {
+      title: story.title, 
+      startdate: Date.now(),
+      isprivate: (story.isprivate === "Private"), 
+      snippets: [story.startsnippet]
+    }
+    console.log("new object, \n", newObj);
+    $scope.newstory = {
+      title: "Default title",
+      isprivate: "Public",
+      startsnippet: "Default starting snippet."
+    }
     // Story.add(newObj); 
   };
 
