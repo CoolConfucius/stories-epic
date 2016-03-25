@@ -144,6 +144,10 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
     }
   };
 
+  $scope.newstory = {
+    isprivate: "Public"
+  }
+
   $scope.openstory = function(story){
     console.log(story, "here's the story");
     // var newObj; 
