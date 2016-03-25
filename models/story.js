@@ -16,14 +16,14 @@ var storySchema = mongoose.Schema({
   short: { type: String, default: moment().format('MM/DD/YYYY') }, 
   isprivate: { type: Boolean }, 
   views: { type: Number, default: 1 }, 
-  startsnippet: { type: String }, 
+  opening: { type: String }, 
   snippets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Snippet" }]
 });
 
 storySchema.statics.add = function (story, cb) {
   var openingsnippet = {
     storytitle: story.title,
-    content: story.startsnippet
+    content: story.opening
   }
   Snippet.add(openingsnippet, (err, snippet) => {
     console.log("Snipet!, \n", snippet);
