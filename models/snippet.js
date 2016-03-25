@@ -17,7 +17,7 @@ var snippetSchema = mongoose.Schema({
 
 snippetSchema.statics.add = function (snippet, cb) {
   Snippet.create({
-    title: snippet.title,
+    storytitle: snippet.storytitle,
     isprivate: snippet.isprivate
   }, cb);
 };

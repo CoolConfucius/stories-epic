@@ -2,6 +2,9 @@
 
 var mongoose = require('mongoose');
 var moment = require('moment');
+
+var Snippet = require('../models/snippet');
+
 var Story; 
 
 var storySchema = mongoose.Schema({
@@ -18,10 +21,19 @@ var storySchema = mongoose.Schema({
 });
 
 storySchema.statics.add = function (story, cb) {
-  Story.create({
-    title: story.title,
-    isprivate: story.isprivate
-  }, cb);
+  var openingsnippet = {
+    storytitle: story.title,
+    content: story.startsnippet
+  }
+  Snippet.add(openingsnippet, (err, snippet) => {
+    console.log("Snipet!, \n", snippet);
+    console.log("Sniipet add");
+    Story.create({
+      title: story.title,
+      isprivate: story.isprivate, 
+
+    }, cb);
+  })
 };
 
 Story = mongoose.model('Story', storySchema); 
