@@ -21,18 +21,18 @@ var storySchema = mongoose.Schema({
 });
 
 storySchema.statics.add = function (story, cb) {
-  var openingsnippet = {
-    storytitle: story.title,
-    content: story.opening
-  }
-  Snippet.add(openingsnippet, (err, snippet) => {
-    console.log("Snipet!, \n", snippet);
-    console.log("Sniipet add");
-    Story.create({
-      title: story.title,
-      isprivate: story.isprivate, 
-
-    }, cb);
+  // Story.create({
+  //   title: story.title,
+  //   isprivate: story.isprivate, 
+  // }, cb);
+  var newstory = new Story({
+    title: story.title,
+    isprivate: story.isprivate, 
+    opening: story.opening
+  });
+  newstory.save(function(err, savedStory) {
+    if (err) return cb(err);
+    cb(null, savedStory);
   })
 };
 

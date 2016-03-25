@@ -20,10 +20,10 @@ snippetSchema.statics.add = function (snippet, cb) {
     storytitle: snippet.storytitle,
     isprivate: snippet.isprivate
   }, cb);
-  var newSnippet = new Snippet({
-    storytitle: snippet.storytitle,
-    isprivate: snippet.isprivate
-  })
+  // var newSnippet = new Snippet({
+  //   storytitle: snippet.storytitle,
+  //   isprivate: snippet.isprivate
+  // })
 };
 
 Snippet = mongoose.model('Snippet', snippetSchema); 
