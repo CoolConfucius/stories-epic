@@ -13,13 +13,11 @@ router.get('/', function(req, res, next) {
 
 router.post('/register', function(req, res, next){
   User.register(req.body, function(err, user){    
-    console.log("is there an err? ", err, user);
-    if (err) return res.status(200).send(err);
     if (user) {
       var token = user.token();
       res.status(200).send(token);
     } else {
-      res.status(404).send(err);
+      res.send(err);
     }
   });
 })
