@@ -98,13 +98,16 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
     Auth.register(user)
     .then((data)=>{
       console.log('data: ', data);
-      $localStorage.token = data; 
-      $rootScope.user = data;
-      $state.go('home');
+      if (data.data !== "Username already taken") {
+        $localStorage.token = data; 
+        $rootScope.user = data;
+        $state.go('home');
+      } else {
+        swal("Username already taken!");  
+      }
     }), 
     function err(err) {
-      console.log(err, "here \n");
-      swal("Err");
+      swal("Registration error");
     };
   }
 
