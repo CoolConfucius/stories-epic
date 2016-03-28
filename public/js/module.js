@@ -101,7 +101,11 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
       $localStorage.token = data; 
       $rootScope.user = data;
       $state.go('home');
-    });
+    }), 
+    function err(err) {
+      console.log(err, "here \n");
+      swal("Err");
+    };
   }
 
   $scope.login = function() {

@@ -33,7 +33,7 @@ storySchema.statics.add = function (story, cb) {
   newstory.save(function(err, savedStory) {
     if (err) return cb(err);
     cb(null, savedStory);
-  })
+  });
 };
 
 Story = mongoose.model('Story', storySchema); 
