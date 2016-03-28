@@ -4,23 +4,40 @@
 <div class="container" id="home">
   <h1>Browse Stories</h1>
 
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="sort-by" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Sort By
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="sort-by">
-      <li><a href="#">Last Updated</a></li>
-      <li><a href="#">Start Date (New - Old)</a></li>
-      <li><a href="#">Start Date (Old - New)</a></li>
-      <li><a href="#">Number of Snippets (Most - Least)</a></li>
-      <li><a href="#">Number of Snippets (Least - Most)</a></li>
-      <li><a href="#">Number of Views (Most - Least)</a></li>
-      <li><a href="#">Number of Views (Least - Most)</a></li>
-    </ul>
+  <div class="row controls-row">
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="sort-by" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Sort By
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="sort-by">
+        <li><a href="#">Last Updated</a></li>
+        <li><a href="#">Start Date (New - Old)</a></li>
+        <li><a href="#">Start Date (Old - New)</a></li>
+        <li><a href="#">Number of Snippets (Most - Least)</a></li>
+        <li><a href="#">Number of Snippets (Least - Most)</a></li>
+        <li><a href="#">Number of Views (Most - Least)</a></li>
+        <li><a href="#">Number of Views (Least - Most)</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="filter-by" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Filter
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="filter-by">
+        <li><a href="#">All Stories</a></li>
+        <li><a href="#">Public Stories</a></li>
+        <li><a href="#">Private Stories</a></li>
+      </ul>
+    </div>
+
+    <a href="/new-story.html" class="btn new-story-btn">New Story</a>
   </div>
 
-  
+
+
   <label for="">Title:</label>
   <input type="text" ng-model="todo.title">
   <label for="">Due Date:</label>
