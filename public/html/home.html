@@ -1,7 +1,26 @@
-<div class="jumbotron text-center">
+<!-- <div class="jumbotron text-center">
   <h1>Collaborative Stories</h1>
-</div>
-<div class="container">
+</div> -->
+<div class="container" id="home">
+  <h1>Browse Stories</h1>
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="sort-by" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Sort By
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="sort-by">
+      <li><a href="#">Last Updated</a></li>
+      <li><a href="#">Start Date (New - Old)</a></li>
+      <li><a href="#">Start Date (Old - New)</a></li>
+      <li><a href="#">Number of Snippets (Most - Least)</a></li>
+      <li><a href="#">Number of Snippets (Least - Most)</a></li>
+      <li><a href="#">Number of Views (Most - Least)</a></li>
+      <li><a href="#">Number of Views (Least - Most)</a></li>
+    </ul>
+  </div>
+
+  
   <label for="">Title:</label>
   <input type="text" ng-model="todo.title">
   <label for="">Due Date:</label>
