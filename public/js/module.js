@@ -177,7 +177,9 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
       isprivate: "Public",
       opening: "Default opening snippet."
     }
-    Story.add(newObj); 
+    Story.add(newObj).then(function(){
+      $state.go('home');
+    }); 
   };
 
   $scope.toggle = function(story){
