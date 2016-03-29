@@ -159,7 +159,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
     startsnippet: "Default starting snippet."
   }
 
-  $scope.openstory = function(story){
+  $scope.openstory = function(story, user){
     // console.log(story, "here's the story");
     var newObj; 
     // var description = story.description ? story.description : 'default description';
@@ -167,13 +167,15 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
       title: story.title, 
       startdate: Date.now(),
       isprivate: (story.isprivate === "Private"), 
-      snippets: [story.startsnippet]
+      snippets: [], 
+      opening: story.opening, 
+      user: user
     }
     console.log("new object, \n", newObj);
     $scope.newstory = {
       title: "Default title",
       isprivate: "Public",
-      startsnippet: "Default starting snippet."
+      opening: "Default opening snippet."
     }
     Story.add(newObj); 
   };
