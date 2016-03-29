@@ -180,6 +180,10 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
     }); 
   };
 
+  $scope.readstory = function(storyid){
+    console.log("storyid", storyid, "\n");
+  }
+
   $scope.toggle = function(story){
     var realIndex = $scope.stories.indexOf(story); 
     $scope.stories[realIndex].iscomplete = !$scope.stories[realIndex].iscomplete;
