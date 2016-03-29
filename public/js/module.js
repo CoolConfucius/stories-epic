@@ -156,7 +156,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
   $scope.newstory = {
     title: "Default title",
     isprivate: "Public",
-    startsnippet: "Default starting snippet."
+    opening: "Default starting snippet."
   }
 
   $scope.openstory = function(story, user){
