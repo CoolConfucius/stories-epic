@@ -15,6 +15,9 @@ var storySchema = mongoose.Schema({
   startdate: { type: Date, default: Date.now() },
   long: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
   short: { type: String, default: moment().format('MM/DD/YYYY') }, 
+  recent: { type: Date, default: Date.now() },
+  recentlong: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
+  recentshort: { type: String, default: moment().format('MM/DD/YYYY') }, 
   isprivate: { type: Boolean }, 
   views: { type: Number, default: 1 }, 
   opening: { type: String }, 
@@ -34,7 +37,7 @@ storySchema.statics.add = function (story, cb) {
     startedby = payload.username; 
   } else {
     userid = null; 
-    startedby = null; 
+    startedby = "Troll"; 
   }
 
   var newstory = new Story({
