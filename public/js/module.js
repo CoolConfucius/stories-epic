@@ -83,10 +83,6 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
   if ($rootScope.user) {
     $rootScope.username = $rootScope.user.config.data.username; 
   };
-  // $rootScope.showlogin = false; 
-  // $scope.toggleshowlogin = function(){
-  //   $rootScope.showlogin = !$rootScope.showlogin;
-  // }
 
   $scope.register = function(){
     console.log($scope.regpassword, $scope.regconfirmpassword, "\n Register! Scope password! \n");
