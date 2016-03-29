@@ -37,7 +37,8 @@
   </div>
 
   <div ng-repeat='item in stories | orderBy:sorttext track by $index'>
-    <div ng-class="{private: item.isprivate }" class="panel panel-default story-preview private col-sm-8 col-sm-offset-2">
+    <h6>{{item}}</h6>
+    <div ng-class="{private: item.isprivate }" class="panel panel-default story-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
         <p>Started by: JayneLosten | Started on: 03/14/16 | Most recent addition: 3/23/16, 12:55pm</p>
         <h3>Bride and Prejudice</h3>
