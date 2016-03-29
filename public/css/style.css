@@ -81,6 +81,7 @@ h5 {
 #home .story-preview {
   margin-top: 25px;
   padding-top: 15px;
+  background-color: honeydew;
 }
 #home .story-preview.private {
   background-color: seashell;
