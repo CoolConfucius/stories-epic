@@ -14,6 +14,16 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/:storyid', function(req, res, next) {
+  console.log("getting story with id,", req.params.storyid);
+  Story.findById(req.params.id, function(err, story){
+    if(err) return res.status(400).send(err); 
+    console.log("Found it,", story);
+    // console.log("Found story!");
+    res.send(story); 
+  });
+});
+
 router.post('/', function(req, res, next) {
   console.log("post story", req.body);
   Story.add(req.body, function(err, story){
