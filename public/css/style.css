@@ -86,9 +86,9 @@ h5 {
 #home .story-preview.private {
   background-color: seashell;
 }
-#home .story-preview.public {
+/*#home .story-preview.public {
   background-color: honeydew;
-}
+}*/
 #home .read-story {
   float: right;
   margin-right: -15px;
