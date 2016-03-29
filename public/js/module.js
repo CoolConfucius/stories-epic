@@ -169,7 +169,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
       isprivate: (story.isprivate === "Private"), 
       snippets: [], 
       opening: story.opening, 
-      user: user
+      user: user.data
     }
     console.log("new object, \n", newObj);
     $scope.newstory = {
