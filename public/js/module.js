@@ -36,6 +36,10 @@ app.service('Story', function($http) {
     return $http.post('/stories', story)
   };
 
+  this.read = function(storyid){
+    return $http.get(`/stories/${storyid}`)
+  }
+
   this.toggle = function(story) {
     return $http.put(`/stories/${story}`)
   };
