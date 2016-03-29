@@ -13,6 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
 // Services: 
+// Story Service: 
 app.service('Story', function($http) {
   this.stories = function() {
     console.log("this.stories \n");
@@ -42,6 +43,7 @@ app.service('Story', function($http) {
   };
 });
 
+// Auth Service: 
 app.service('Auth', function($http, $state, $localStorage, $rootScope) {
   this.register = function(user) {    
     return $http({method: 'POST', url: '/register', data: user})
