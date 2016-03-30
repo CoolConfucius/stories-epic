@@ -50,7 +50,11 @@ storySchema.statics.add = function (story, cb) {
   });
   newstory.save(function(err, savedStory) {
     if (err) return cb(err);
-    cb(null, savedStory);
+    if (savedStory.userid) {
+      User.findById(savedStory.userid, function(err, savedUser){
+        
+      })
+    } else cb(null, savedStory);
   });
 };
 
