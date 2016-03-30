@@ -37,9 +37,12 @@ snippetSchema.statics.add = function (snippet, cb) {
     userid: userid,
     writtenby: writtenby
   });
-  newsnippet.save(function(err, savedStory) {
+  newsnippet.save(function(err, savedSnippet) {
     if (err) return cb(err);
-    cb(null, savedStory);
+    Story.findById(savedSnippet.storyid, function(err, story){
+
+      cb(null, savedSnippet);
+    })
   });
 };
 
