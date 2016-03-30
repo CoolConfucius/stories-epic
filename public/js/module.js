@@ -246,7 +246,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     }
     Snippet.add(newObj).then(function(){
       // $state.go(`story`);
-      $scope.story.snippets.push({content: snippet.content});
+      $scope.story.snippets.push({content: snippet.content, writtenby: user.config.data.username });
     }); 
   };
 });
