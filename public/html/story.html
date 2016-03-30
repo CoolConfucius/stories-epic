@@ -1,5 +1,13 @@
 <div class="container" id="story">
-  <pre>{{story}}</pre>
+  <pre>
+    {{story._id}}
+    {{story.title}}
+    {{story.isprivate}}
+    {{story.opening}}
+    {{story.userid}}
+    {{story.startedby}}
+    {{story.snippets}}
+  </pre>
   <div class="row info">
     <h1 class="title">{{story.title}}</h1>
     <span>Started by: {{story.startedby}} | Started on: {{story.short}} | Most recent addition: {{story.recentlong}}</span>
