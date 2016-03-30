@@ -53,6 +53,9 @@ storySchema.statics.add = function (story, cb) {
     if (savedStory.userid) {
       User.findById(savedStory.userid, function(err, user){
         user.stories.push(savedStory._id);
+        user.save(function(err, savedUser){
+          cb(null, savedStory);  
+        })
       })
     } else cb(null, savedStory);
   });
