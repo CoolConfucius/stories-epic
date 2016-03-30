@@ -15,7 +15,12 @@
       <a href="/profile.html" class="authorname">{{story.startedby}}</a>
       <p>{{story.opening}} </p>
     </div>
-    <div class="snippet">
+
+    <div ng-repeat='snippet in story.snippets track by $index' class="snippet">
+      <a href="/profile.html" class="authorname">{{snippet.writtenby}}</a>
+      <p>{{snippet.content}} </p>
+    </div>
+    <!-- <div class="snippet">
       <a href="/profile.html" class="authorname">JayneLosten</a>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed quod ad laudantium eius sequi laboriosam magni eum earum rerum cum, nobis alias, quae esse impedit inventore qui perspiciatis, ea quibusdam quaerat hic incidunt dicta. Quaerat rem exercitationem magnam. Ullam, asperiores explicabo nihil nemo veritatis debitis, natus porro repellendus, aut cumque nostrum eveniet veniam perspiciatis ipsam minima officiis vel dolores. Tenetur maiores, dignissimos asperiores debitis. Maiores eius possimus incidunt earum molestiae totam? Beatae enim veniam placeat ad facilis et itaque amet, nulla, molestias repellat, odio! Impedit aut veritatis deleniti praesentium, ratione perferendis molestiae, dolor dolorum cumque odit aspernatur, iusto, id dolorem.</p>
     </div>
@@ -27,7 +32,7 @@
       <a href="/profile.html" class="authorname">JayneLosten</a>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed quod ad laudantium eius sequi laboriosam magni eum earum rerum cum, nobis alias, quae esse impedit inventore qui perspiciatis, ea quibusdam quaerat hic incidunt dicta. Quaerat rem exercitationem magnam. Ullam, asperiores explicabo nihil nemo veritatis debitis, natus porro repellendus, aut cumque nostrum eveniet veniam perspiciatis ipsam minima officiis vel dolores. Tenetur maiores, dignissimos asperiores debitis. Maiores eius possimus incidunt earum molestiae totam? Beatae enim veniam placeat ad facilis et itaque amet, nulla, molestias repellat, odio! Impedit aut veritatis deleniti praesentium, ratione perferendis molestiae, dolor dolorum cumque odit aspernatur, iusto, id dolorem.</p>
     </div>
-  </div>
+  </div> -->
 
   <div class="col-sm-8 col-sm-offset-2">
     <a href="" class="btn new-snippet">New Snippet</a>
