@@ -57,8 +57,8 @@ router.post('/snippets', function(req, res, next){
   });
 })
 
-router.get('users/:username', function(req, res, next) {
-  console.log("getting story with id,", req.params.username);
+router.get('/users/:username', function(req, res, next) {
+  console.log("getting user with username,", req.params.username);
   User.findOne({ username: req.params.username}).populate('stories').populate('snippets')
   .exec(function(err, user){
     if(err) return res.status(400).send(err); 

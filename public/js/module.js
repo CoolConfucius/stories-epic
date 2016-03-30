@@ -262,8 +262,8 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
 app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Auth, Story, Snippet ) {
   $rootScope.user = $localStorage.token; 
 
-  var profileid = $state.params.profileid;
-  Auth.read(profileid)
+  var profilename = $state.params.profilename;
+  Auth.read(profilename)
   .then(function(res) {
     $scope.profile = res.data; 
   });
