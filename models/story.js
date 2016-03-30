@@ -52,7 +52,7 @@ storySchema.statics.add = function (story, cb) {
     if (err) return cb(err);
     if (savedStory.userid) {
       User.findById(savedStory.userid, function(err, user){
-        if (err || !user) return res.status(err ? 400 : 404).send(err || 'user not found');
+        if (err || !user) return cb(err, 'user not found');
         user.stories.push(savedStory._id);
         user.save(function(err, savedUser){
           cb(null, savedStory);  
