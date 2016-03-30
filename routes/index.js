@@ -57,4 +57,15 @@ router.post('/snippets', function(req, res, next){
   });
 })
 
+router.get('users/:userid', function(req, res, next) {
+  console.log("getting story with id,", req.params.userid);
+  User.findById(req.params.userid).populate('stories').populate('snippets')
+  .exec(function(err, user){
+    if(err) return res.status(400).send(err); 
+    console.log("Found it,", user);
+    // console.log("Found user!");
+    res.send(user); 
+  });
+});
+
 module.exports = router;

@@ -48,8 +48,10 @@
             <button ng-if="!user" ng-click="login()" type="submit" class="btn btn-default">Login</button>
             <a ng-if="!user" href="#/register" type="" class="btn btn-default">Register</a>
             
-            <a ng-if="user && username" href="#/profile" type="" class="btn btn-default">Welcome, {{username}} !</a>
-            <a ng-if="user && !username" href="#/profile" type="" class="btn btn-default">Welcome, {{user.config.data.username}} !</a>
+            {{user}}
+            <a ng-if="user && username" href="#/profile/{{username}}" type="" class="btn btn-default">Welcome, {{username}} !</a>
+            <a ng-if="user && !username" href="#/profile/{{user.config.data.username}}" type="" class="btn btn-default">Welcome, {{user.config.data.username}} !</a>
+
             <button ng-if="user" ng-click="logout()" type="" class="btn btn-default">Logout!</button>
           </form>
 

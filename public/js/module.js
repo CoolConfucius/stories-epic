@@ -8,7 +8,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
   .state('home', { url: '/', templateUrl: 'html/home.html', controller: 'mainCtrl' })
   .state('register', { url: '/register', templateUrl: 'html/register.html', controller: 'mainCtrl' })
   .state('createstory', { url: '/createstory', templateUrl: 'html/createstory.html', controller: 'mainCtrl' })
-  .state('profile', { url: '/profile', templateUrl: 'html/profile.html', controller: 'mainCtrl' })
+  // .state('profile', { url: '/profile', templateUrl: 'html/profile.html', controller: 'mainCtrl' })
+  .state('profile', { url: '/profile/:profileid', templateUrl: 'html/profile.html', controller: 'profileCtrl' })
   .state('story', { url: '/story/:storyid', templateUrl: 'html/story.html', controller: 'storyCtrl' })
   $urlRouterProvider.otherwise('/');
 });
@@ -76,6 +77,11 @@ app.service('Auth', function($http, $state, $localStorage, $rootScope) {
     this.data = $localStorage.token; 
     $rootScope.user = $localStorage.token; 
   }
+
+  this.read = function(userid){
+    return $http.get(`/users/${userid}`)
+  }
+
 });
 
 // Run: 
@@ -249,4 +255,17 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       $scope.story.snippets.push({content: snippet.content, writtenby: user.config.data.username });
     }); 
   };
+});
+
+
+// profileCtrl
+app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Auth, Story, Snippet ) {
+  $rootScope.user = $localStorage.token; 
+
+  var profileid = $state.params.profileid;
+  Auth.read(profileid)
+  .then(function(res) {
+    $scope.profile = res.data; 
+  });
+
 });
