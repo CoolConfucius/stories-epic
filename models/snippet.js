@@ -16,6 +16,16 @@ var snippetSchema = mongoose.Schema({
 });
 
 snippetSchema.statics.add = function (snippet, cb) {
+  var userid, startedby; 
+  if (story.user) {
+    var token = story.user; 
+    var payload = jwt.decode(token, process.env.JWT_SECRET); 
+    userid = payload._id; 
+    startedby = payload.username; 
+  } else {
+    userid = null; 
+    startedby = "Troll"; 
+  }
   Snippet.create({
     storytitle: snippet.storytitle,
     isprivate: snippet.isprivate
