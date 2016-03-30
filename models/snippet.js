@@ -40,7 +40,8 @@ snippetSchema.statics.add = function (snippet, cb) {
   newsnippet.save(function(err, savedSnippet) {
     if (err) return cb(err);
     Story.findById(savedSnippet.storyid, function(err, story){
-      console.log("Here's the story \n", story);
+      if (err || !story) return res.status(err ? 400 : 404).send(err || 'story not found');
+      // console.log("Here's the story \n", story);
       cb(null, savedSnippet);
     })
   });
