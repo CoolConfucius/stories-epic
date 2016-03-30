@@ -169,7 +169,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     var newObj; 
     var userdata = null;
     if (user) userdata = user.data;
-    // var description = story.description ? story.description : 'default description';
+    
     newObj = {
       title: story.title, 
       startdate: Date.now(),
@@ -232,7 +232,9 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   $scope.addsnippet = function(snippet, user){
     // console.log(snippet, "here's the snippet");
     var newObj; 
-    // var description = story.description ? story.description : 'default description';
+    var userdata = null;
+    if (user) userdata = user.data;
+    
     newObj = {
       storytitle: story.title, 
       storyid: storyid,
