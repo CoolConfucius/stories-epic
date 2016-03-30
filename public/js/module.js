@@ -51,8 +51,8 @@ app.service('Story', function($http) {
 
 // Snippet Service
 app.service('Snippet', function($http) {
-  this.add = function(story) {
-    return $http.post('/snippet', story)
+  this.add = function(snippet, storyid) {
+    return $http.post(`/snippets/:storyid`, snippet)
   };
 });
 
@@ -243,7 +243,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     $scope.newsnippet = {
       content: "default content"
     }
-    Snippet.add(newObj).then(function(){
+    Snippet.add(newObj, storyid).then(function(){
       $state.go('home');
     }); 
   };
