@@ -41,9 +41,10 @@ snippetSchema.statics.add = function (snippet,  cb) {
   });
   newsnippet.save(function(err, savedSnippet) {
     if (err) return cb(err);
-    Story.findById(savedSnippet.storyid, function(err, story){
+    console.log("\n Savedsniipet story",savedSnippet.storyid);
+    Story.findById(savedSnippet.storyid).exec(function(err, story){
       if (err || !story) return cb('story not found', null);
-      // console.log("Here's the story \n", story);
+      console.log("Here's the story \n", story);
       story.snippets.push(savedSnippet._id);
       story.save(function(err, savedStory){
         if (savedSnippet.userid) {
@@ -56,7 +57,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
           })
         } else cb(null, savedSnippet);      
       })
-    })
+    });
   });
 };
 
