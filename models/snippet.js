@@ -5,7 +5,9 @@ var moment = require('moment');
 var jwt = require('jwt-simple');
 
 var Story = require('../models/story');
-console.log(Story, "HERE STORY \n");
+var User = require('../models/user');
+// console.log(Story, "HERE STORY \n");
+
 var Snippet; 
 
 var snippetSchema = mongoose.Schema({
