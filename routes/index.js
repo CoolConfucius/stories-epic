@@ -3,7 +3,7 @@
 var express = require('express');
 
 var User = require('../models/user');
-var Story = require('../models/story');
+var Snippet = require('../models/snippet');
 
 var router = express.Router();
 
@@ -31,9 +31,9 @@ router.post('/login', function(req, res, next){
 })
 
 router.post('/snippets/:storyid', function(req, res, next){
-  Story.add(req.body, function(err, story){    
+  Snippet.add(req.body, function(err, snippet){    
     if (err) return res.status(400).send(err);
-    res.status(200).send(story);
+    res.status(200).send(snippet);
   });
 })
 
