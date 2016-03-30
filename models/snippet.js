@@ -26,14 +26,18 @@ snippetSchema.statics.add = function (snippet, cb) {
     userid = null; 
     writtenby = "Troll"; 
   }
-  Snippet.create({
-    storytitle: snippet.storytitle,
-    isprivate: snippet.isprivate
-  }, cb);
-  // var newSnippet = new Snippet({
-  //   storytitle: snippet.storytitle,
-  //   isprivate: snippet.isprivate
-  // })
+
+  var newsnippet = new Snippet({
+    title: story.title,
+    isprivate: story.isprivate, 
+    opening: story.opening,
+    userid: userid,
+    startedby: startedby
+  });
+  newsnippet.save(function(err, savedStory) {
+    if (err) return cb(err);
+    cb(null, savedStory);
+  });
 };
 
 Snippet = mongoose.model('Snippet', snippetSchema); 
