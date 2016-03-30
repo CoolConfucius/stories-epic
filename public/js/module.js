@@ -51,8 +51,8 @@ app.service('Story', function($http) {
 
 // Snippet Service
 app.service('Snippet', function($http) {
-  this.add = function(snippet, storyid) {
-    return $http.post(`/snippets/:storyid`, snippet)
+  this.add = function(snippet) {
+    return $http.post(`/snippets`, snippet)
   };
 });
 

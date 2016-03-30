@@ -57,7 +57,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
           })
         } else cb(null, savedSnippet);      
       })
-    });
+    })
   });
 };
 

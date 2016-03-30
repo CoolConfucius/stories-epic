@@ -30,7 +30,7 @@ router.post('/login', function(req, res, next){
   });
 })
 
-router.post('/snippets/:storyid', function(req, res, next){
+router.post('/snippets', function(req, res, next){
   Snippet.add(req.body, function(err, snippet){    
     if (err) return res.status(400).send(err);
     res.status(200).send(snippet);
