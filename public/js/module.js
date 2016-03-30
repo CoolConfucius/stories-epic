@@ -265,6 +265,7 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
   var profilename = $state.params.profilename;
   Auth.read(profilename)
   .then(function(res) {
+    console.log("RES, Profile:", res);
     $scope.profile = res.data; 
   });
 
