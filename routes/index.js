@@ -8,7 +8,7 @@ var Story = require('../models/story');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mean Stack Todo List' });
+  res.render('index', { title: 'Collaborative Stories' });
 });
 
 router.post('/register', function(req, res, next){
