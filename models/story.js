@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var moment = require('moment');
 var jwt = require('jwt-simple');
 
+var User = require('../models/user');
 var Snippet = require('../models/snippet');
 
 var Story; 
