@@ -186,15 +186,15 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     }); 
   };
 
-  $scope.readstory = function(storyid){
-    console.log("storyid", storyid, "\n");
-    Story.read(storyid).then(function(res){
-      // console.log("read story data", data);
-      console.log("read story data", res.data);
-      $scope.story = res.data; 
-      $state.go('story');
-    })
-  }
+  // $scope.readstory = function(storyid){
+  //   console.log("storyid", storyid, "\n");
+  //   Story.read(storyid).then(function(res){
+  //     // console.log("read story data", data);
+  //     console.log("read story data", res.data);
+  //     $scope.story = res.data; 
+  //     $state.go('story');
+  //   })
+  // }
 
   $scope.toggle = function(story){
     var realIndex = $scope.stories.indexOf(story); 

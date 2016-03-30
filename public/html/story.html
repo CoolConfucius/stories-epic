@@ -1,18 +1,19 @@
 <div class="container" id="story">
 
   <div class="row info">
-    <h1 class="title">Storicus Titilus</h1>
-    <span>Started by: JayneLosten | Started on: 03/14/16 | Most recent addition: 3/23/16, 12:55pm</span>
+    <h1 class="title">{{story.title}}</h1>
+    <span>Started by: {{story.startedby}} | Started on: {{story.short}} | Most recent addition: {{story.recentlong}}</span>
     <br>
-    <div class="tag public">Public</div>
+    <div ng-if="!story.isprivate" class="tag public">Public</div>
+    <div ng-if="story.isprivate" class="tag private">Private</div>
     <div class="btn add-snippet">Add Snippet</div>
     <div class="btn favorite fa fa-heart"></div>
   </div>
 
   <div class="story-box col-sm-8 col-sm-offset-2">
     <div class="snippet">
-      <a href="/profile.html" class="authorname">JayneLosten</a>
-      <p>Something: {{story}} </p>
+      <a href="/profile.html" class="authorname">{{story.startedby}}</a>
+      <p>Something: {{story.opening}} </p>
     </div>
     <div class="snippet">
       <a href="/profile.html" class="authorname">JayneLosten</a>
