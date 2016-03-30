@@ -80,7 +80,7 @@ app.run(function(Auth, Story, $rootScope){
 
 
 // Controllers: 
-app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, Auth, Story){
+app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $stateParams, Auth, Story){
   
   // User Related: 
   $rootScope.user = $localStorage.token;
@@ -159,7 +159,9 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
     title: "Default title",
     isprivate: "Public",
     opening: "Default starting snippet."
-  }
+  };
+
+  $scope.story = {};
 
   $scope.openstory = function(story, user){
     // console.log(story, "here's the story");
@@ -208,3 +210,13 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
 
 
 })
+
+
+app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, Item, $localStorage) {
+  $rootScope.user = $localStorage.token; 
+
+  Story.read($state.params.storyid)
+  .then(function(res) {
+    $scope.story = res.data; 
+  });
+});
