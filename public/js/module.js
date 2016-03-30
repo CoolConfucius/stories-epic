@@ -232,9 +232,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     newObj = {
       title: story.title, 
       startdate: Date.now(),
-      isprivate: (story.isprivate === "Private"), 
-      snippets: [], 
-      opening: story.opening, 
+      content: snippet.content, 
       user: user.data
     }
     console.log("new object, \n", newObj);
