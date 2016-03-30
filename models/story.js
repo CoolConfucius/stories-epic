@@ -6,7 +6,7 @@ var jwt = require('jwt-simple');
 
 var User = require('../models/user');
 var Snippet = require('../models/snippet');
-
+console.log(User, "User in story model");
 var Story; 
 
 var storySchema = mongoose.Schema({

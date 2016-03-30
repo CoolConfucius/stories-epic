@@ -6,7 +6,8 @@ var jwt = require('jwt-simple');
 
 var Story = require('../models/story');
 var User = require('../models/user');
-// console.log(Story, "HERE STORY \n");
+console.log(Story, "HERE STORY \n");
+console.log(User, "HERE USER \n");
 
 var Snippet; 
 
@@ -44,6 +45,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
   newsnippet.save(function(err, savedSnippet) {
     if (err) return cb(err);
     console.log("\n Savedsnippet storyid",savedSnippet.storyid);
+    console.log(Story, "adslfjdslkf");
     Story.findById(savedSnippet.storyid, function(err, story){
       if (err || !story) return cb('story not found', null);
       console.log("Here's the story \n", story);
