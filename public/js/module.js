@@ -78,8 +78,8 @@ app.service('Auth', function($http, $state, $localStorage, $rootScope) {
     $rootScope.user = $localStorage.token; 
   }
 
-  this.read = function(userid){
-    return $http.get(`/users/${userid}`)
+  this.read = function(username){
+    return $http.get(`/users/${username}`)
   }
 
 });
@@ -263,6 +263,7 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
   $rootScope.user = $localStorage.token; 
 
   var profilename = $state.params.profilename;
+  console.log("Profilename!, \n", profilename);
   Auth.read(profilename)
   .then(function(res) {
     console.log("RES, Profile:", res);
