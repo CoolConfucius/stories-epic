@@ -24,9 +24,9 @@ var userSchema = Schema({
   location: { type: String }, 
   contactinfo: { type: String }, 
   interests: { type: String }, 
-  stories: [{ type: mongoose.Schema.Types.ObjectId, ref: "story" }],
-  snippets: [{ type: mongoose.Schema.Types.ObjectId, ref: "snippet" }],
-  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "story" }]
+  stories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Story" }],
+  snippets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Snippet" }],
+  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: "Story" }]
 });
 
 userSchema.methods.token = function() {
