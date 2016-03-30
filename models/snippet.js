@@ -2,6 +2,7 @@
 
 var mongoose = require('mongoose');
 var moment = require('moment');
+var jwt = require('jwt-simple');
 
 var Story = require('../models/story');
 
@@ -18,7 +19,8 @@ var snippetSchema = mongoose.Schema({
   content: { type: String }
 });
 
-snippetSchema.statics.add = function (snippet, cb) {
+snippetSchema.statics.add = function (snippet,  cb) {
+  console.log("DOES IT BREAK HERE?");
   var userid, writtenby; 
   if (snippet.user) {
     var token = snippet.user; 
