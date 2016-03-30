@@ -2,6 +2,9 @@
 
 var mongoose = require('mongoose');
 var moment = require('moment');
+
+var Story = require('../models/story');
+
 var Snippet; 
 
 var snippetSchema = mongoose.Schema({
