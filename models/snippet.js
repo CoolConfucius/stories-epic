@@ -44,20 +44,17 @@ snippetSchema.statics.add = function (snippet, cb) {
       // console.log("Here's the story \n", story);
       story.snippets.push(savedSnippet._id);
       story.save(function(err, savedStory){
-        
-      })
-          if (savedSnippet.userid) {
-            User.findById(savedSnippet.userid, function(err, user){
-              if (err || !user) return cb('user not found', null);
-              user.stories.push(savedSnippet._id);
-              user.save(function(err, savedUser){
-                cb(null, savedSnippet);  
-              })
+
+        if (savedSnippet.userid) {
+          User.findById(savedSnippet.userid, function(err, user){
+            if (err || !user) return cb('user not found', null);
+            user.stories.push(savedSnippet._id);
+            user.save(function(err, savedUser){
+              cb(null, savedSnippet);  
             })
-          } else cb(null, savedSnippet);      
-
-          cb(null, savedSnippet);
-
+          })
+        } else cb(null, savedSnippet);      
+      })
     })
   });
 };
