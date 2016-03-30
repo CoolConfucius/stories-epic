@@ -167,6 +167,8 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
   $scope.openstory = function(story, user){
     // console.log(story, "here's the story");
     var newObj; 
+    var userdata = null;
+    if (user) userdata = user.data;
     // var description = story.description ? story.description : 'default description';
     newObj = {
       title: story.title, 
@@ -174,7 +176,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
       isprivate: (story.isprivate === "Private"), 
       snippets: [], 
       opening: story.opening, 
-      user: user.data
+      user: userdata
     }
     console.log("new object, \n", newObj);
     $scope.newstory = {
