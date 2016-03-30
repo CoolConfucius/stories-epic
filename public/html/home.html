@@ -43,8 +43,8 @@
         <p>Started by: {{item.startedby}} | Started on: {{item.short}} | Most recent addition: {{item.recentlong}}</p>
         <h3>{{item.title}}</h3>
         <h5>{{item.opening}}</h5>
-        <!-- <a href="/story.html" class="btn read-story">Read</a> -->
-        <button ng-click="readstory(item._id)" type="submit" class="btn read-story">Read</button>
+        <a href="#/story/{{item._id}}" class="btn read-story">Read</a>
+        <!-- <button ng-click="readstory(item._id)" type="submit" class="btn read-story">Read</button> -->
       </div>
     </div>
   </div>

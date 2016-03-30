@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   .state('register', { url: '/register', templateUrl: 'html/register.html', controller: 'mainCtrl' })
   .state('createstory', { url: '/createstory', templateUrl: 'html/createstory.html', controller: 'mainCtrl' })
   .state('profile', { url: '/profile', templateUrl: 'html/profile.html', controller: 'mainCtrl' })
-  .state('story', { url: '/story', templateUrl: 'html/story.html', controller: 'mainCtrl' })
+  .state('story', { url: '/story/:storyid', templateUrl: 'html/story.html', controller: 'storyCtrl' })
   $urlRouterProvider.otherwise('/');
 });
 
@@ -212,7 +212,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
 })
 
 
-app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, Item, $localStorage) {
+app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Auth ) {
   $rootScope.user = $localStorage.token; 
 
   Story.read($state.params.storyid)
