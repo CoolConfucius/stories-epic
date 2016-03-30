@@ -23,7 +23,11 @@
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
             <ul>
-              <li><a href="/story.html"></a>Lorem ipsum dolor</li>
+              <li ng-repeat="story in profile.stories">
+                <a href="/story.html">
+                  {{story}}
+                </a>
+              </li>
               <li><a href="/story.html"></a>Lorem ipsum dolor</li>
               <li><a href="/story.html"></a>Lorem ipsum dolor</li>
               <li><a href="/story.html"></a>Lorem ipsum dolor</li>
