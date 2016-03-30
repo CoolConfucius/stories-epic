@@ -49,6 +49,13 @@ app.service('Story', function($http) {
   };
 });
 
+// Snippet Service
+app.service('Snippet', function($http) {
+  this.add = function(story) {
+    return $http.post('/snippet', story)
+  };
+});
+
 // Auth Service: 
 app.service('Auth', function($http, $state, $localStorage, $rootScope) {
   this.register = function(user) {    
