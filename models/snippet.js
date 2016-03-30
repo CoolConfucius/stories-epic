@@ -28,11 +28,11 @@ snippetSchema.statics.add = function (snippet, cb) {
   }
 
   var newsnippet = new Snippet({
-    title: story.title,
-    isprivate: story.isprivate, 
-    opening: story.opening,
+    storytitle: snippet.title,
+    storyid: snippet.storyid,
+    content: snippet.content,
     userid: userid,
-    startedby: startedby
+    writtenby: writtenby
   });
   newsnippet.save(function(err, savedStory) {
     if (err) return cb(err);
