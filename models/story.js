@@ -63,5 +63,4 @@ storySchema.statics.add = function (story, cb) {
 };
 
 Story = mongoose.model('Story', storySchema); 
-
 module.exports = Story; 

@@ -5,7 +5,7 @@ var moment = require('moment');
 var jwt = require('jwt-simple');
 
 var Story = require('../models/story');
-
+console.log(Story, "HERE STORY \n");
 var Snippet; 
 
 var snippetSchema = mongoose.Schema({
@@ -41,8 +41,8 @@ snippetSchema.statics.add = function (snippet,  cb) {
   });
   newsnippet.save(function(err, savedSnippet) {
     if (err) return cb(err);
-    console.log("\n Savedsniipet story",savedSnippet.storyid);
-    Story.findById(savedSnippet.storyid).exec(function(err, story){
+    console.log("\n Savedsnippet storyid",savedSnippet.storyid);
+    Story.findById(savedSnippet.storyid, function(err, story){
       if (err || !story) return cb('story not found', null);
       console.log("Here's the story \n", story);
       story.snippets.push(savedSnippet._id);
