@@ -4,6 +4,7 @@ var express = require('express');
 
 var User = require('../models/user');
 var Snippet = require('../models/snippet');
+var Story = require('../models/story');
 
 var router = express.Router();
 

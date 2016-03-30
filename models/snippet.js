@@ -4,14 +4,16 @@ var mongoose = require('mongoose');
 var moment = require('moment');
 var jwt = require('jwt-simple');
 
-var Story = require('../models/story');
 var User = require('../models/user');
+var Story = require('../models/story');
+
 console.log(Story, "HERE STORY \n");
 console.log(User, "HERE USER \n");
 
+var Schema = mongoose.Schema;
 var Snippet; 
 
-var snippetSchema = mongoose.Schema({
+var snippetSchema = Schema({
   storytitle: { type: String }, 
   storyid: { type: String }, 
   writtenby: { type: String }, 

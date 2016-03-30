@@ -7,9 +7,10 @@ var jwt = require('jwt-simple');
 var User = require('../models/user');
 var Snippet = require('../models/snippet');
 
+var Schema = mongoose.Schema;
 var Story; 
 
-var storySchema = mongoose.Schema({
+var storySchema = Schema({
   title: { type: String }, 
   startedby: { type: String }, 
   userid: { type: String }, 
