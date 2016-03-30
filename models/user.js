@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var moment = require('moment');
 var bcrypt = require('bcrypt-node');
 var jwt = require('jwt-simple');
 
@@ -13,6 +14,9 @@ var User;
 var userSchema = Schema({
   username:{ type: String, required: true, unique: true },
   password:{ type: String, required: true }, 
+  joindate: { type: Date, default: Date.now() },
+  long: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
+  short: { type: String, default: moment().format('MM/DD/YYYY') }, 
   aboutme: { type: String }, 
   age: { type: Number }, 
   birthday: { type: Date }, 
