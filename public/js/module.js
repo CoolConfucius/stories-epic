@@ -219,8 +219,10 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   $scope.newsnippet = {
     content: "default content"
   }
+  
+  var storyid = $state.params.storyid;
 
-  Story.read($state.params.storyid)
+  Story.read(storyid)
   .then(function(res) {
     $scope.story = res.data; 
   });
@@ -230,16 +232,15 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     var newObj; 
     // var description = story.description ? story.description : 'default description';
     newObj = {
-      title: story.title, 
+      storytitle: story.title, 
+      storyid: storyid,
       startdate: Date.now(),
       content: snippet.content, 
       user: user.data
     }
     console.log("new object, \n", newObj);
-    $scope.newstory = {
-      title: "Default title",
-      isprivate: "Public",
-      opening: "Default opening snippet."
+    $scope.newsnippet = {
+      content: "default content"
     }
     Snippet.add(newObj).then(function(){
       $state.go('home');
