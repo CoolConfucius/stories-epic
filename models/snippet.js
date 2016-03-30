@@ -16,15 +16,15 @@ var snippetSchema = mongoose.Schema({
 });
 
 snippetSchema.statics.add = function (snippet, cb) {
-  var userid, startedby; 
-  if (story.user) {
-    var token = story.user; 
+  var userid, writtenby; 
+  if (snippet.user) {
+    var token = snippet.user; 
     var payload = jwt.decode(token, process.env.JWT_SECRET); 
     userid = payload._id; 
-    startedby = payload.username; 
+    writtenby = payload.username; 
   } else {
     userid = null; 
-    startedby = "Troll"; 
+    writtenby = "Troll"; 
   }
   Snippet.create({
     storytitle: snippet.storytitle,
