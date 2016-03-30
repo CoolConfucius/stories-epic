@@ -1,7 +1,7 @@
 <div class="container" id="profile">
   <pre>{{profile}}</pre>
   <div class="col-xs-12">
-    <a href="" class="btn edit-profile-btn fa fa-pencil"></a>
+    <a ng-if="profile.username === username" href="" class="btn edit-profile-btn fa fa-pencil"></a>
   </div>
 
   <div class="row info">
@@ -25,7 +25,7 @@
             <ul>
               <li ng-repeat="story in profile.stories">
                 <a href="/story.html">
-                  {{story}}
+                  {{story.title}}
                 </a>
               </li>
               <li><a href="/story.html"></a>Lorem ipsum dolor</li>
