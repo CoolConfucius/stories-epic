@@ -36,13 +36,13 @@ router.post('/snippets', function(req, res, next){
     if (err) return res.status(400).send(err);
     
     Story.findById(snippet.storyid, function(err, story){
-      if (err || !story) return cb('story not found', null);
+      if (err || !story) return res.status(400).send(err); 
       console.log("Here's the story \n", story);
       story.snippets.push(snippet._id);
       story.save(function(err, savedStory){
         if (snippet.userid) {
           User.findById(snippet.userid, function(err, user){
-            if (err || !user) return cb('user not found', null);
+            if (err || !user) return res.status(400).send(err); 
             user.snippets.push(snippet._id);
             user.save(function(err, savedUser){
               res.send(snippet);
