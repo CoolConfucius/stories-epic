@@ -8,7 +8,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
   .state('home', { url: '/', templateUrl: 'html/home.html', controller: 'mainCtrl' })
   .state('register', { url: '/register', templateUrl: 'html/register.html', controller: 'mainCtrl' })
   .state('createstory', { url: '/createstory', templateUrl: 'html/createstory.html', controller: 'mainCtrl' })
-  // .state('profile', { url: '/profile', templateUrl: 'html/profile.html', controller: 'mainCtrl' })
   .state('profile', { url: '/profile/:profilename', templateUrl: 'html/profile.html', controller: 'profileCtrl' })
   .state('story', { url: '/story/:storyid', templateUrl: 'html/story.html', controller: 'storyCtrl' })
   $urlRouterProvider.otherwise('/');
