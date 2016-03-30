@@ -219,4 +219,8 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   .then(function(res) {
     $scope.story = res.data; 
   });
+
+  $scope.newsnippet = {
+    content: "default content"
+  }
 });
