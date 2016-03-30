@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   .state('register', { url: '/register', templateUrl: 'html/register.html', controller: 'mainCtrl' })
   .state('createstory', { url: '/createstory', templateUrl: 'html/createstory.html', controller: 'mainCtrl' })
   // .state('profile', { url: '/profile', templateUrl: 'html/profile.html', controller: 'mainCtrl' })
-  .state('profile', { url: '/profile/:profileid', templateUrl: 'html/profile.html', controller: 'profileCtrl' })
+  .state('profile', { url: '/profile/:profilename', templateUrl: 'html/profile.html', controller: 'profileCtrl' })
   .state('story', { url: '/story/:storyid', templateUrl: 'html/story.html', controller: 'storyCtrl' })
   $urlRouterProvider.otherwise('/');
 });
@@ -263,7 +263,7 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
   $rootScope.user = $localStorage.token; 
 
   var profilename = $state.params.profilename;
-  console.log("Profilename!, \n", profilename);
+  console.log("Profilename!, \n", $state.params);
   Auth.read(profilename)
   .then(function(res) {
     console.log("RES, Profile:", res);
