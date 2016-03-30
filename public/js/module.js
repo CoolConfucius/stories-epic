@@ -213,15 +213,38 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
 })
 
 // storyCtrl
-app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Auth ) {
+app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Snippet ) {
   $rootScope.user = $localStorage.token; 
+
+  $scope.newsnippet = {
+    content: "default content"
+  }
 
   Story.read($state.params.storyid)
   .then(function(res) {
     $scope.story = res.data; 
   });
 
-  $scope.newsnippet = {
-    content: "default content"
-  }
+  $scope.addsnippet = function(snippet, user){
+    // console.log(snippet, "here's the snippet");
+    var newObj; 
+    // var description = story.description ? story.description : 'default description';
+    newObj = {
+      title: story.title, 
+      startdate: Date.now(),
+      isprivate: (story.isprivate === "Private"), 
+      snippets: [], 
+      opening: story.opening, 
+      user: user.data
+    }
+    console.log("new object, \n", newObj);
+    $scope.newstory = {
+      title: "Default title",
+      isprivate: "Public",
+      opening: "Default opening snippet."
+    }
+    Snippet.add(newObj).then(function(){
+      $state.go('home');
+    }); 
+  };
 });

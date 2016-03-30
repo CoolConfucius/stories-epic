@@ -7,7 +7,7 @@ var Snippet;
 var snippetSchema = mongoose.Schema({
   storytitle: { type: String }, 
   storyid: { type: String }, 
-  startedby: { type: String }, 
+  writtenby: { type: String }, 
   userid: { type: String }, 
   startdate: { type: Date, default: Date.now() },
   long: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
