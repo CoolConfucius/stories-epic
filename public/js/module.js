@@ -154,6 +154,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     $scope.stories = $rootScope.stories;
   });
 
+  $scope.sorttext = "startdate"
   $scope.sort = function(key){
     console.log("sort!");
     if ($scope.sorttext === key) {
