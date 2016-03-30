@@ -244,7 +244,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     $scope.newsnippet = {
       content: "default content"
     }
-    Snippet.add(newObj, storyid).then(function(){
+    Snippet.add(newObj).then(function(){
       $state.go('home');
     }); 
   };

@@ -34,7 +34,26 @@ router.post('/login', function(req, res, next){
 router.post('/snippets', function(req, res, next){
   Snippet.add(req.body, function(err, snippet){    
     if (err) return res.status(400).send(err);
-    res.status(200).send(snippet);
+    
+    Story.findById(snippet.storyid, function(err, story){
+      if (err || !story) return cb('story not found', null);
+      console.log("Here's the story \n", story);
+      story.snippets.push(snippet._id);
+      story.save(function(err, savedStory){
+        if (snippet.userid) {
+          User.findById(snippet.userid, function(err, user){
+            if (err || !user) return cb('user not found', null);
+            user.snippets.push(snippet._id);
+            user.save(function(err, savedUser){
+              res.send(snippet);
+            })
+          })
+        } else 
+        res.send(snippet);
+      })
+    })
+    // res.send(snippet);
+
   });
 })
 

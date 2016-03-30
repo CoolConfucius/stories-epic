@@ -44,7 +44,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
     userid: userid,
     writtenby: writtenby
   });
-  
+
   newsnippet.save(function(err, savedSnippet) {
     if (err) return cb(err);
     console.log("\n Savedsnippet storyid",savedSnippet.storyid);
@@ -54,15 +54,16 @@ snippetSchema.statics.add = function (snippet,  cb) {
       // console.log("Here's the story \n", story);
       // story.snippets.push(savedSnippet._id);
       // story.save(function(err, savedStory){
-        if (savedSnippet.userid) {
-          User.findById(savedSnippet.userid, function(err, user){
-            if (err || !user) return cb('user not found', null);
-            user.snippets.push(savedSnippet._id);
-            user.save(function(err, savedUser){
-              cb(null, savedSnippet);  
-            })
-          })
-        } else cb(null, savedSnippet);      
+        // if (savedSnippet.userid) {
+        //   User.findById(savedSnippet.userid, function(err, user){
+        //     if (err || !user) return cb('user not found', null);
+        //     user.snippets.push(savedSnippet._id);
+        //     user.save(function(err, savedUser){
+        //       cb(null, savedSnippet);  
+        //     })
+        //   })
+        // } else 
+        cb(null, savedSnippet);      
       // })
     // })
   });
