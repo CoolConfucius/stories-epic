@@ -186,9 +186,10 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, A
 
   $scope.readstory = function(storyid){
     console.log("storyid", storyid, "\n");
-    Story.read(storyid).then(function(data){
-      console.log("read story data", data);
-      $scope.story = data; 
+    Story.read(storyid).then(function(res){
+      // console.log("read story data", data);
+      console.log("read story data", res.data.config);
+      $scope.story = res; 
       $state.go('story');
     })
   }
