@@ -25,7 +25,6 @@ var snippetSchema = Schema({
 });
 
 snippetSchema.statics.add = function (snippet,  cb) {
-  console.log("DOES IT BREAK HERE?");
   var userid, writtenby; 
   if (snippet.user) {
     var token = snippet.user; 
@@ -47,7 +46,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
 
   newsnippet.save(function(err, savedSnippet) {
     if (err) return cb(err);
-    console.log("\n Savedsnippet storyid",savedSnippet.storyid);
+    // console.log("\n Savedsnippet storyid",savedSnippet.storyid);
     // console.log(Story, "adslfjdslkf");
     // Story.findById(savedSnippet.storyid, function(err, story){
       // if (err || !story) return cb('story not found', null);
