@@ -189,16 +189,6 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     }); 
   };
 
-  // $scope.readstory = function(storyid){
-  //   console.log("storyid", storyid, "\n");
-  //   Story.read(storyid).then(function(res){
-  //     // console.log("read story data", data);
-  //     console.log("read story data", res.data);
-  //     $scope.story = res.data; 
-  //     $state.go('story');
-  //   })
-  // }
-
   $scope.toggle = function(story){
     var realIndex = $scope.stories.indexOf(story); 
     $scope.stories[realIndex].iscomplete = !$scope.stories[realIndex].iscomplete;
@@ -240,7 +230,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       storyid: storyid,
       startdate: Date.now(),
       content: snippet.content, 
-      user: user.data
+      user: userdata
     }
     console.log("new object, \n", newObj);
     $scope.newsnippet = {
