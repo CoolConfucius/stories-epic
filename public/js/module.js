@@ -80,6 +80,7 @@ app.run(function(Auth, Story, $rootScope){
 
 
 // Controllers: 
+// mainCtrl
 app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $stateParams, Auth, Story){
   
   // User Related: 
@@ -211,7 +212,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
 
 })
 
-
+// storyCtrl
 app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Auth ) {
   $rootScope.user = $localStorage.token; 
 
