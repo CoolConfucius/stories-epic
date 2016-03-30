@@ -42,6 +42,16 @@ snippetSchema.statics.add = function (snippet, cb) {
     Story.findById(savedSnippet.storyid, function(err, story){
       if (err || !story) return cb('story not found', null);
       // console.log("Here's the story \n", story);
+      if (savedSnippet.userid) {
+        User.findById(savedSnippet.userid, function(err, user){
+          if (err || !user) return cb('user not found', null);
+          user.stories.push(savedSnippet._id);
+          user.save(function(err, savedUser){
+            cb(null, savedSnippet);  
+          })
+        })
+      } else cb(null, savedSnippet);      
+
       cb(null, savedSnippet);
     })
   });
