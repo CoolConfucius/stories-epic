@@ -220,10 +220,10 @@ h5 {
 #story .story-box .snippet .authorname {
   /*font-size: 8px;*/
   margin-bottom: 3px;
-  color: #666;
+  color: green;
 }
 #story .story-box .snippet .authorname:hover {
-  color: black;
+  color: lime;
 }
 
 #story .story-box .snippet p {
