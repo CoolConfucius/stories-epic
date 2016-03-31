@@ -266,10 +266,13 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     }); 
   };
 
+  $scope.isediting = false; 
   $scope.editsnippet = function(snippet, user) {
+    console.log("edit snippet!", snippet, user);
     if (!user) return;
     if (snippet.writtenby !== user.config.data.username) return;
     console.log("Edit snippet! Passed error handling");
+    $scope.isediting = !$scope.isediting; 
   }
 });
 
