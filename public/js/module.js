@@ -266,6 +266,14 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     }); 
   };
 
+  $scope.iseditstory = false; 
+  $scope.editstory = function(story, user){
+    if (!user) return;
+    if (story.startedby !== user.config.data.username) return;
+    console.log("Edit story! Passed error handling");
+    $scope.iseditstory = !$scope.iseditstory; 
+  }
+
   $scope.isediting = false; 
   $scope.editsnippet = function(snippet, user) {
     console.log("edit snippet!", snippet, user);
