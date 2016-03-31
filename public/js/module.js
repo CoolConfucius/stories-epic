@@ -287,8 +287,8 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
         snippetstories.push(entry.storytitle);
       }
     });
-    console.log(snippets, "SNIPPETS");
-    console.log(snippetstories, "SNIPPETSTORIES");
+    // console.log(snippets, "SNIPPETS");
+    // console.log(snippetstories, "SNIPPETSTORIES");
     $scope.contributions = snippetstories;
     $scope.editobj = {
       imageurl: data.imageurl,
