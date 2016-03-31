@@ -267,6 +267,13 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
   .then(function(res) {
     console.log("RES, Profile:", res);
     $scope.profile = res.data; 
+    var snippets = res.data.snippets; 
+    var snippetstories = snippets.map(function(entry){
+      return entry.storytitle;
+    });
+    console.log(snippets, "SNIPPETS");
+    console.log(snippetstories, "SNIPPETSTORIES");
+    // $scope.contributions = snippe
   });
 
 });

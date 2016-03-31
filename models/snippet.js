@@ -37,7 +37,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
   }
 
   var newsnippet = new Snippet({
-    storytitle: snippet.title,
+    storytitle: snippet.storytitle,
     storyid: snippet.storyid,
     content: snippet.content,
     userid: userid,
