@@ -237,7 +237,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     var newObj; 
     var userdata = null;
     if (user) userdata = user.data;
-    
+    console.log("$scopestorytitle \n \n", $scope.story);
     newObj = {
       storytitle: $scope.story.title, 
       storyid: storyid,
