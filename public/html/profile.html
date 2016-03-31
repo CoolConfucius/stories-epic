@@ -131,6 +131,13 @@
       <p>writer_grl_92@hotmail.com</p>
     </div>
 
+    <div class="col-sm-6">
+      <p>Location:</p>
+    </div>
+    <div class="col-sm-6">
+      <p>Fremont, CA</p>
+    </div>
+
 
   </div>
 
@@ -138,42 +145,60 @@
     <h2>About Me</h2>
     <!-- <input type="text"> -->
     <textarea ng-model="editobj.aboutme" name="start-snippet" id="" cols="30" rows="6"></textarea>
-    <h2>Information</h2>
+    
+    <div class="col-sm-6">
+      <br>
+      <p>Profile Image URL:</p>
+      <input ng-model="editobj.imageurl" type="text">
+    </div>
 
     <div class="col-sm-6">
       <br>
       <p>Age:</p>
-      <input type="text">
+      <input ng-model="editobj.age" type="number" min="10">
     </div>
 
     <div class="col-sm-6">
       <br>
       <p>Birthday:</p>
-      <input type="text">
+      <input ng-model="editobj.birthday" type="date">
     </div>
 
     <div class="col-sm-6">
       <br>
       <p>Gender:</p>
-      <input type="text">
+      <input ng-model="editobj.gender" type="text">
     </div>
 
     <div class="col-sm-6">
       <br>
-      <p>Interests:</p>
-      <input type="text">
+      <p>Location:</p>
+      <input ng-model="editobj.location" type="text">
     </div>
 
     <div class="col-sm-6">
       <br>
       <p>Contact:</p>
-      <input type="text">
+      <input ng-model="editobj.contact" type="text">
+    </div>
+    
+    <div class="col-sm-12">
+      <br>
+      <p>Interests:</p>
+      <input ng-model="editobj.interests" type="text">
+    </div>
+
+
+    <div class="col-sm-6">
+      <br>
+      <br>
+      <button ng-click="savechanges(editobj)" class="btn">Save changes</button>
     </div>
 
     <div class="col-sm-6">
       <br>
       <br>
-      <button class="btn">Save changes</button>
+      <button ng-click="editprofile()" class="btn">Cancel edit</button>
     </div>
     
   </div>

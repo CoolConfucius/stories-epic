@@ -9,18 +9,17 @@ router.get('/', function(req, res, next) {
   Story.find({}, function(err, stories){
     if(err) return res.status(400).send(err); 
     // console.log("Found them,", stories);
-    console.log("Found stories!");
+    // console.log("Found stories!");
     res.send(stories); 
   });
 });
 
 router.get('/:storyid', function(req, res, next) {
-  console.log("getting story with id,", req.params.storyid);
+  // console.log("getting story with id,", req.params.storyid);
   Story.findById(req.params.storyid).populate('snippets')
   .exec(function(err, story){
     if(err) return res.status(400).send(err); 
-    console.log("Found it,", story);
-    // console.log("Found story!");
+    // console.log("Found it,", story);
     res.send(story); 
   });
 });
@@ -36,7 +35,7 @@ router.put('/:id', function(req, res, next) {
   console.log("post story", req.params.id);
   Story.findById(req.params.id, function(err, story){
     if(err) return res.status(400).send(err); 
-    console.log("Found one,", story);
+    // console.log("Found one,", story);
     story.iscomplete = !story.iscomplete; 
     story.save(function(err, savedTodo){
 
@@ -46,7 +45,7 @@ router.put('/:id', function(req, res, next) {
 });
 
 router.delete('/:id', function(req, res, next) {
-  console.log("post story", req.params.id);
+  // console.log("post story", req.params.id);
   Story.findById(req.params.id, function(err, story){
     if(err) return res.status(400).send(err); 
     console.log("Found one,", story);

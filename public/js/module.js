@@ -56,6 +56,17 @@ app.service('Snippet', function($http) {
   };
 });
 
+// Profile Service 
+app.service('Profile', function($http){
+  this.read = function(username){
+    return $http.get(`/users/${username}`)
+  }
+
+  this.edit = function(username, profile) {
+    return $http.put(`/users/${username}`, profile)
+  }
+})
+
 // Auth Service: 
 app.service('Auth', function($http, $state, $localStorage, $rootScope) {
   this.register = function(user) {    
@@ -77,9 +88,9 @@ app.service('Auth', function($http, $state, $localStorage, $rootScope) {
     $rootScope.user = $localStorage.token; 
   }
 
-  this.read = function(username){
-    return $http.get(`/users/${username}`)
-  }
+  // this.read = function(username){
+  //   return $http.get(`/users/${username}`)
+  // }
 
 });
 
@@ -258,16 +269,18 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
 
 
 // profileCtrl
-app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Auth, Story, Snippet ) {
+app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Snippet, Profile ) {
   $rootScope.user = $localStorage.token; 
 
   var profilename = $state.params.profilename;
   console.log("Profilename!, \n", $state.params);
-  Auth.read(profilename)
+  Profile.read(profilename)
   .then(function(res) {
-    console.log("RES, Profile:", res);
-    $scope.profile = res.data; 
-    var snippets = res.data.snippets; 
+    // console.log("RES, Profile:", res);
+    var data = res.data; 
+    $scope.profile = data; 
+    
+    var snippets = data.snippets; 
     var snippetstories = [];
     snippets.forEach(function(entry){
       if (snippetstories.indexOf(entry.storytitle) === -1) {
@@ -277,12 +290,30 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
     console.log(snippets, "SNIPPETS");
     console.log(snippetstories, "SNIPPETSTORIES");
     $scope.contributions = snippetstories;
+    $scope.editobj = {
+      imageurl: data.imageurl,
+      aboutme: data.aboutme,
+      age: data.age, 
+      birthday: data.birthday,
+      gender: data.gender,
+      location: data.location,
+      interests: data.interests,
+      contact: data.contact
+    }
   });
 
-  $scope.isediting = false; 
+  $scope.isediting = true; 
   $scope.editprofile = function(){
-    console.log("hit edit profile!");
     $scope.isediting = !$scope.isediting; 
+  }
+
+  $scope.savechanges = function(editobj){
+    if (!$scope.isediting) return;
+    console.log("editobj \n", editobj);
+    // var newObj; 
+    Profile.edit(profilename, editobj); 
+    $scope.isediting = false; 
+
   }
 
 });

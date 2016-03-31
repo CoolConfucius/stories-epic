@@ -17,12 +17,13 @@ var userSchema = Schema({
   joindate: { type: Date, default: Date.now() },
   long: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
   short: { type: String, default: moment().format('MM/DD/YYYY') }, 
+  imageurl: { type: String },
   aboutme: { type: String }, 
   age: { type: Number }, 
   birthday: { type: Date }, 
   gender: { type: String }, 
   location: { type: String }, 
-  contactinfo: { type: String }, 
+  contact: { type: String }, 
   interests: { type: String }, 
   stories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Story" }],
   snippets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Snippet" }],
@@ -79,6 +80,26 @@ userSchema.statics.authenticate = function(inputUser, cb){
     });
   });
 };
+
+
+userSchema.statics.edit = function(userObj, username, cb) {
+  User.findOne({username: username}, function(err, user){
+    if(err) return res.status(400).send(err); 
+    // user._id = userObj._id; 
+    user.imageurl = userObj.imageurl; 
+    user.aboutme = userObj.aboutme; 
+    user.age = userObj.age; 
+    user.birthday = userObj.birthday; 
+    user.gender = userObj.gender; 
+    user.interests = userObj.interests; 
+    user.contact = userObj.contact; 
+    user.location = userObj.location; 
+    user.save(function(err, savedUser){
+      if (err) return cb(err);
+      cb(null, savedUser); 
+    })
+  });
+}
 
 User = mongoose.model('User', userSchema);
 module.exports = User;
