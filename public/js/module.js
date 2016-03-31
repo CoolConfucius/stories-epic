@@ -273,7 +273,7 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
   $rootScope.user = $localStorage.token; 
 
   var profilename = $state.params.profilename;
-  console.log("Profilename!, \n", $state.params);
+  // console.log("Profilename!, \n", $state.params);
   Profile.read(profilename)
   .then(function(res) {
     // console.log("RES, Profile:", res);
