@@ -10,7 +10,11 @@
   </pre>
   <div class="row info">
     <h1 class="title">{{story.title}}</h1>
-    <span>Started by: {{story.startedby}} | Started on: {{story.short}} | Most recent addition: {{story.recentlong}}</span>
+    <span>
+      Started by: 
+      <a href="">{{story.startedby}}</a>
+       | Started on: {{story.short}} | Most recent addition: {{story.recentlong}}
+    </span>
     <br>
     <div ng-if="!story.isprivate" class="tag public">Public</div>
     <div ng-if="story.isprivate" class="tag private">Private</div>
