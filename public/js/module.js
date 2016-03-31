@@ -239,7 +239,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     if (user) userdata = user.data;
     
     newObj = {
-      storytitle: story.title, 
+      storytitle: $scope.story.title, 
       storyid: storyid,
       startdate: Date.now(),
       content: snippet.content, 
