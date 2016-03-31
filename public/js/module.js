@@ -268,9 +268,6 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
     console.log("RES, Profile:", res);
     $scope.profile = res.data; 
     var snippets = res.data.snippets; 
-    // var snippetstories = snippets.map(function(entry){
-    //   return entry.storytitle;
-    // });
     var snippetstories = [];
     snippets.forEach(function(entry){
       if (snippetstories.indexOf(entry.storytitle) === -1) {
@@ -281,5 +278,11 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
     console.log(snippetstories, "SNIPPETSTORIES");
     $scope.contributions = snippetstories;
   });
+
+  $scope.isediting = false; 
+  $scope.editprofile = function(){
+    console.log("hit edit profile!");
+    $scope.isediting = !$scope.isediting; 
+  }
 
 });
