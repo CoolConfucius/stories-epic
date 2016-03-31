@@ -26,8 +26,8 @@
     <div class="snippet">
       <div class="row">
         <a href="#/profile/{{story.startedby}}" class="authorname col-sm-8">{{story.startedby}}</a>
-        <button ng-if="story.startedby === username" class="col-sm-2 btn btn-sm glyphicon glyphicon-pencil"></button>
-        <button ng-if="story.startedby === username" class="col-sm-2 btn btn-sm glyphicon glyphicon-trash"></button>
+        <button ng-if="story.startedby === user.config.data.username" class="col-sm-2 btn btn-sm glyphicon glyphicon-pencil"></button>
+        <button ng-if="story.startedby === user.config.data.username" class="col-sm-2 btn btn-sm glyphicon glyphicon-trash"></button>
       </div>
       <p>{{story.opening}} </p>
     </div>
