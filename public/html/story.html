@@ -20,12 +20,17 @@
 
   <div class="story-box col-sm-8 col-sm-offset-2">
     <div class="snippet">
-      <a href="#/profile/{{story.startedby}}" class="authorname">{{story.startedby}}</a>
+      <div class="row">
+        <a href="#/profile/{{story.startedby}}" class="authorname col-sm-4">{{story.startedby}}</a>
+      </div>
       <p>{{story.opening}} </p>
     </div>
 
     <div ng-repeat='snippet in story.snippets track by $index' class="snippet">
-      <a href="#/profile/{{story.writtenby}}" class="authorname">{{snippet.writtenby}}</a>
+      <div class="row">
+        <a href="#/profile/{{story.writtenby}}" class="authorname col-sm-4">{{snippet.writtenby}}</a>
+        <!-- <a href="#/profile/{{story.writtenby}}" class="authorname">{{snippet.writtenby}}</a> -->
+      </div>
       <p>{{snippet.content}} </p>
     </div>
 
