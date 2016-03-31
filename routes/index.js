@@ -69,12 +69,6 @@ router.get('/users/:username', function(req, res, next) {
 });
 
 router.put('/users/:username', function(req, res, next) {
-  // console.log("getting user with username,", req.params.username);
-  // User.findOne({ username: req.params.username.toString()})
-  // .exec(function(err, user){
-  //   if(err) return res.status(400).send(err); 
-  //   res.send(user); 
-  // });
   User.edit(req.body, req.params.username, function(err, user){
     if(err) return res.status(400).send(err); 
     res.send(user); 

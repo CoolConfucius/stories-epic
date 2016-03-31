@@ -1,11 +1,12 @@
 <div class="container" id="profile">
   <!-- <pre>{{profile}}</pre> -->
   <div class="col-xs-12" ng-if="profile.username === username">
-    <a ng-click="editprofile()" href="" class="btn edit-profile-btn fa fa-pencil"></a>
+    <a ng-click="editprofile()" href="" class="btn edit-profile-btn fa fa-pencil"> Edit Profile</a>
   </div>
 
   <div class="row info">
-    <img src="http://placehold.it/75" alt="">
+    <img ng-if="!profile.imageurl" src="http://placehold.it/75" alt="">
+    <img ng-if="profile.imageurl && !isediting" src="{{profile.imageurl}}" alt="" id="profilepic">
     <h1 class="title">{{profile.username}}</h1>
     <span>Member since: {{profile.short}}</span>
   </div>
@@ -78,8 +79,9 @@
   </div>
 
   <div ng-hide="isediting" class="col-sm-8">
-    <h2>About Me</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore officia, cumque laudantium nostrum maxime laborum!</p>
+    <h2 ng-if="profile.aboutme">About Me</h2>
+    <p ng-if="profile.aboutme">{{profile.aboutme}}</p>
+    <h3 ng-if="!profile.aboutme && profile.username === username">Introduce yourself! Click on the pencil above to edit your profile</h3>
     <h2>Information</h2>
 
     <div class="col-sm-6">
@@ -96,46 +98,46 @@
       <p>{{profile.snippets.length}}</p>
     </div>
 
-    <div class="col-sm-6">
+    <div ng-if="profile.age" class="col-sm-6">
       <p>Age:</p>
     </div>
-    <div class="col-sm-6">
-      <p>24</p>
+    <div ng-if="profile.age" class="col-sm-6">
+      <p>{{profile.age}}</p>
     </div>
 
-    <div class="col-sm-6">
+    <div ng-if="profile.birthday" class="col-sm-6">
       <p>Birthday:</p>
     </div>
-    <div class="col-sm-6">
-      <p>1/1/1992</p>
+    <div ng-if="profile.birthday" class="col-sm-6">
+      <p>{{profile.birthday}}</p>
     </div>
 
-    <div class="col-sm-6">
+    <div ng-if="profile.gender" class="col-sm-6">
       <p>Gender:</p>
     </div>
-    <div class="col-sm-6">
-      <p>---</p>
+    <div ng-if="profile.gender" class="col-sm-6">
+      <p>{{profile.gender}}</p>
     </div>
 
-    <div class="col-sm-6">
+    <div ng-if="profile.interests" class="col-sm-6">
       <p>Interests:</p>
     </div>
-    <div class="col-sm-6">
-      <p>Writing. Lots of writing.</p>
+    <div ng-if="profile.interests" class="col-sm-6">
+      <p>{{profile.interests}}</p>
     </div>
 
-    <div class="col-sm-6">
+    <div ng-if="profile.contact" class="col-sm-6">
       <p>Contact:</p>
     </div>
-    <div class="col-sm-6">
-      <p>writer_grl_92@hotmail.com</p>
+    <div ng-if="profile.contact" class="col-sm-6">
+      <p>{{profile.contact}}</p>
     </div>
 
-    <div class="col-sm-6">
+    <div ng-if="profile.location" class="col-sm-6">
       <p>Location:</p>
     </div>
-    <div class="col-sm-6">
-      <p>Fremont, CA</p>
+    <div ng-if="profile.location" class="col-sm-6">
+      <p>{{profile.location}}</p>
     </div>
 
 
@@ -181,7 +183,7 @@
       <p>Contact:</p>
       <input ng-model="editobj.contact" type="text">
     </div>
-    
+
     <div class="col-sm-12">
       <br>
       <p>Interests:</p>

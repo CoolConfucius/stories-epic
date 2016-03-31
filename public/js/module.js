@@ -302,7 +302,7 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
     }
   });
 
-  $scope.isediting = true; 
+  $scope.isediting = false; 
   $scope.editprofile = function(){
     $scope.isediting = !$scope.isediting; 
   }
@@ -310,8 +310,16 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
   $scope.savechanges = function(editobj){
     if (!$scope.isediting) return;
     console.log("editobj \n", editobj);
-    // var newObj; 
-    Profile.edit(profilename, editobj); 
+    Profile.edit(profilename, editobj).then(function(){
+      $scope.profile.imageurl = editobj.imageurl,
+      $scope.profile.aboutme = editobj.aboutme,
+      $scope.profile.age = editobj.age,
+      $scope.profile.birthday = editobj.birthday,
+      $scope.profile.gender = editobj.gender,
+      $scope.profile.location = editobj.location,
+      $scope.profile.interests = editobj.interests,
+      $scope.profile.contact = editobj.contact
+    }); 
     $scope.isediting = false; 
 
   }
