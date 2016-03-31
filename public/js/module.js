@@ -265,6 +265,12 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       $scope.story.snippets.push({content: snippet.content, writtenby: user.config.data.username });
     }); 
   };
+
+  $scope.editsnippet = function(snippet, user) {
+    if (!user) return;
+    if (snippet.writtenby !== user.config.data.username) return;
+    console.log("Edit snippet! Passed error handling");
+  }
 });
 
 
