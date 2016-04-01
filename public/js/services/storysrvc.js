@@ -26,7 +26,7 @@ app.service('Story', function($http) {
     return $http.put(`/stories/${storyid}`, editstoryobj)
   };
 
-  this.remove = function(story) {
+  this.remove = function(storyid) {
     return $http.delete(`/stories/${storyid}`)
   };
 });
