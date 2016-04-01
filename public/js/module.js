@@ -9,6 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   .state('register', { url: '/register', templateUrl: 'html/register.html', controller: 'mainCtrl' })
   .state('createstory', { url: '/createstory', templateUrl: 'html/createstory.html', controller: 'mainCtrl' })
   .state('story', { url: '/story/:storyid', templateUrl: 'html/story.html', controller: 'storyCtrl' })
+  .state('snippet', { url: '/snippet/:snippetid', templateUrl: 'html/snippet.html', controller: 'snippetCtrl' })
   .state('profile', { url: '/profile/:profilename', templateUrl: 'html/profile.html', controller: 'profileCtrl' })
   $urlRouterProvider.otherwise('/');
 });
