@@ -22,8 +22,8 @@ app.service('Story', function($http) {
     return $http.get(`/stories/${storyid}`)
   }
 
-  this.toggle = function(story) {
-    return $http.put(`/stories/${story}`)
+  this.edit = function(storyid, editstoryobj) {
+    return $http.put(`/stories/${story}`, editstoryobj)
   };
 
   this.remove = function(story) {
