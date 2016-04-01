@@ -9,12 +9,23 @@
     {{snippet.content}}
   </pre>
 
-  <button ng-click="editsnippet(snippet, user)" ng-if="snippet.writtenby === user.config.data.username" class="col-sm-2 btn">
-    <span class="glyphicon glyphicon-pencil"></span>
-    Save changes
-  </button>
-  <button ng-click="deletesnippet(snippet, user)" ng-if="snippet.writtenby === user.config.data.username && isediting" class="col-sm-2 btn btn-sm glyphicon glyphicon-trash"></button>
+  <div class="row">
+    <div class="add-snippet col-sm-8 col-sm-offset-2">
+      <textarea ng-model="newsnippet.content" name="new-snippet" id="" cols="30" rows="10"></textarea>
+      <br>
+      <button ng-click="addsnippet(newsnippet, user)" ng-if="snippet.writtenby === user.config.data.username" type="submit" class="btn publish-snippet">
+        <span class="glyphicon glyphicon-pencil"></span>
+        Save changes
+      </button>
+    </div>
+  </div>
+  
+  <br>
+  <div class="row">
+    <button ng-click="deletesnippet(snippet, user)" ng-if="snippet.writtenby === user.config.data.username" class="col-sm-2 btn glyphicon glyphicon-trash"></button>
+    <button ng-if="isdeleting" class="col-sm-2 btn">Confirm delete</button>
+  </div>
+  <br>
   <a href="#/story/{{snippet.storyid}}" class="btn">Go back to {{snippet.storytitle}}</a>
 
-  <button ng-if="isdeleting" class="btn">Confirm delete</button>
 </div>
