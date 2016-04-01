@@ -11,4 +11,8 @@ app.service('Snippet', function($http) {
     return $http.get(`/snippets/${snippetid}`)
   };
 
+  this.edit = function(snippetid, editcontent){
+    return $http.put(`/snippets/${snippetid}`, editcontent)
+  }
+
 });
