@@ -29,7 +29,6 @@ router.post('/', function(req, res, next){
         res.send(snippet);
       })
     })
-    // res.send(snippet);
 
   });
 })
