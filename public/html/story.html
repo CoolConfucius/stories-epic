@@ -26,10 +26,11 @@
       <span class="glyphicon glyphicon-pencil"></span>
       Edit Story
     </button>
-    <button ng-if="iseditstory" class="col-sm-2 btn btn">
+    <button ng-click="deletestory(story, user)" ng-if="iseditstory" class="col-sm-2 btn btn">
       <span class="glyphicon glyphicon-trash"></span>
       Delete Story
     </button>
+    <button ng-click="remove()" ng-if="isdeleting" class="col-sm-2 btn">Confirm delete</button>
   </div>
 
   <div ng-if="iseditstory" class="form col-sm-8 col-sm-offset-2">
