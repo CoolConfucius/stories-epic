@@ -30,9 +30,39 @@
       <span class="glyphicon glyphicon-trash"></span>
       Delete Story
     </button>
-    <textarea ng-if="iseditstory" ng-model="editstory.opening" name="editstoryopening" id="" cols="30" rows="10"></textarea>
+
+    <!-- <textarea ng-if="iseditstory" ng-model="editstory.opening" name="editstoryopening" id="" cols="30" rows="10"></textarea> -->
   </div>
-  <div class="story-box col-sm-8 col-sm-offset-2">
+  <div ng-if="iseditstory" class="form col-sm-8 col-sm-offset-2">
+    <div class="input-row">
+      <h3>Story Title</h3>
+      <input ng-model="newstory.title" type="text" required="required" class="form-control"/>
+    </div>
+
+    <div class="input-row">
+      <h3>Writing Permission</h3>
+      <select name="isprivate" ng-model="newstory.isprivate">
+        <option name="Public" value="Public">Public</option>
+        <option name="Private" value="Private">Private</option>
+      </select>
+      <br>
+      <span>Public: Anyone can read and add onto this story</span>
+      <br>
+      <span>Private: Anyone can read this story, but only people you select can add onto it</span>
+    </div>
+
+    <div class="input-row">
+      <h3>Starting Snippet</h3>
+      <textarea ng-model="newstory.opening" name="start-snippet" id="" cols="30" rows="10"></textarea>
+      <button ng-click="openstory(newstory, user)" type="submit" class="btn publish-snippet">Save Changes</button>
+    </div>
+
+
+  </div>
+
+
+
+  <div ng-hide="iseditstory" class="story-box col-sm-8 col-sm-offset-2">
     <div class="snippet">
       <div class="row">
         <!-- <a href="#/profile/{{story.startedby}}" class="authorname col-sm-8">{{story.startedby}}</a> -->
