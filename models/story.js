@@ -27,10 +27,6 @@ var storySchema = Schema({
 });
 
 storySchema.statics.add = function (story, cb) {
-  // Story.create({
-  //   title: story.title,
-  //   isprivate: story.isprivate, 
-  // }, cb);
   var userid, startedby; 
   if (story.user) {
     var token = story.user; 
