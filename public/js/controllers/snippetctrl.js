@@ -29,6 +29,13 @@ app.controller('snippetCtrl', function($scope, $rootScope, $state, $stateParams,
     $scope.isdeleting = !$scope.isdeleting; 
   }
 
+  $scope.remove = function(){
+    var storyid = $scope.snippet.storyid; 
+    Snippet.remove(snippetid).then(function(){
+      $state.go(`story/${storyid}`);
+    })
+  }
+
 
 
 });
