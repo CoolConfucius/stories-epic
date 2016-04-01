@@ -52,4 +52,15 @@ router.put('/:snippetid', function(req, res, next) {
   });
 });
 
+router.delete('/:snippetid', function(req, res, next) {
+  Snippet.findById(req.params.snippetid, function(err, snippet){
+    if(err) return res.status(400).send(err); 
+    // console.log("Found one,", snippet);
+    snippet.remove(function(err){
+      res.status(err ? 400 : 200).send(err || snippet);
+    })
+  });
+});
+
+
 module.exports = router;
