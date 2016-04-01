@@ -56,6 +56,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       $scope.story.title = editstoryobj.title;
       $scope.story.opening = editstoryobj.opening;
       $scope.story.isprivate = editstoryobj.isprivate === "Private";
+      $scope.iseditstory = false; 
     });
   };
 
