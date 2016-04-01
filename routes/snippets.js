@@ -34,7 +34,7 @@ router.post('/', function(req, res, next){
 })
 
 router.get('/:snippetid', function(req, res, next) {
-  // console.log("getting snippet with id,", req.params.storyid);
+  console.log("getting snippet with id,", req.params.storyid);
   Snippet.findById(req.params.snippetid, function(err, snippet){
     if(err) return res.status(400).send(err); 
     // console.log("Found it,", snippet);

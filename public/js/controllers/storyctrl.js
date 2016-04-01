@@ -36,9 +36,12 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     $scope.newsnippet = {
       content: "default content"
     }
-    Snippet.add(newObj).then(function(){
-      // $state.go(`story`);
-      $scope.story.snippets.push({content: snippet.content, writtenby: user.config.data.username });
+    Snippet.add(newObj).then(function(savedSnippet){
+      $scope.story.snippets.push({
+        content: snippet.content, 
+        writtenby: user.config.data.username,
+        _id: savedSnippet.data._id
+      });
     }); 
   };
 
