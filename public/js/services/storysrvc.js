@@ -1,7 +1,3 @@
-// 'use strict';
-
-// var app = angular.module("app"); 
-
 app.service('Story', function($http) {
   this.stories = function() {
     console.log("this.stories \n");
