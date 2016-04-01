@@ -94,14 +94,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 // });
 
-// Run: 
-app.run(function(Auth, Story, $rootScope){
-  Auth.user();
-  Story.stories();
-  $rootScope.stories = Story.data; 
-});
-
-
 // Controllers: 
 // mainCtrl
 // app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $stateParams, Auth, Story){
@@ -342,3 +334,10 @@ app.run(function(Auth, Story, $rootScope){
 //   }
 
 // });
+
+// Run: 
+app.run(function(Auth, Story, $rootScope){
+  Auth.user();
+  Story.stories();
+  $rootScope.stories = Story.data; 
+});
