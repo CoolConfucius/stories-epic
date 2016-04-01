@@ -69,8 +69,6 @@ router.get('/snippets/:snippetid', function(req, res, next) {
 });
 
 router.put('/snippets/:snippetid', function(req, res, next) {
-  console.log("here?", req.body);
-  // MAKE SURE IT'S A JSON OBJECT
   Snippet.findById(req.params.snippetid, function(err, snippet){
     if(err) return res.status(400).send(err); 
     snippet.content = req.body.content;  
