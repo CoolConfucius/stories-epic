@@ -68,6 +68,17 @@ router.get('/snippets/:snippetid', function(req, res, next) {
   });
 });
 
+router.put('/snippets/:snippetid', function(req, res, next) {
+  Snippet.findById(req.params.snippetid, function(err, story){
+    if(err) return res.status(400).send(err); 
+    snippet.content = req.body;  
+    snippet.save(function(err, savedSnippet){
+      res.send(err || savedSnippet);
+    })
+  });
+});
+
+
 
 
 
