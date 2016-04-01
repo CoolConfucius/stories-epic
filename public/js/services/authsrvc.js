@@ -1,7 +1,3 @@
-// 'use strict';
-
-// var app = angular.module("app"); 
-
 app.service('Auth', function($http, $state, $localStorage, $rootScope) {
   this.register = function(user) {    
     return $http({method: 'POST', url: '/register', data: user})
@@ -21,9 +17,5 @@ app.service('Auth', function($http, $state, $localStorage, $rootScope) {
     this.data = $localStorage.token; 
     $rootScope.user = $localStorage.token; 
   }
-
-  // this.read = function(username){
-  //   return $http.get(`/users/${username}`)
-  // }
 
 });
