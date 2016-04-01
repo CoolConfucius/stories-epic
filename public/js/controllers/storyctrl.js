@@ -46,16 +46,16 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   $scope.editstory = function(story, user){
     if (!user) return;
     if (story.startedby !== user.config.data.username) return;
-    console.log("Edit story! Passed error handling");
+    // console.log("Edit story! Passed error handling");
     $scope.iseditstory = !$scope.iseditstory; 
   }
 
   $scope.savechanges = function(editstoryobj){
-    console.log(editstoryobj);
+    // console.log(editstoryobj);
     Story.edit(storyid, editstoryobj).then(function(){
       $scope.story.title = editstoryobj.title;
       $scope.story.opening = editstoryobj.opening;
-      $scope.story.title = editstoryobj.title === "Private";
+      $scope.story.isprivate = editstoryobj.isprivate === "Private";
     });
   };
 
