@@ -34,7 +34,7 @@ app.controller('snippetCtrl', function($scope, $rootScope, $state, $stateParams,
     Snippet.remove(snippetid).then(function(){
       console.log(`story/`, storyid);
       // $state.go(`home`);
-      $state.go('story',{storyid:storyid});
+      $state.go('story', {storyid:storyid});
     })
   }
 

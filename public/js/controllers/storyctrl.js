@@ -63,5 +63,20 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     });
   };
 
+  $scope.isdeleting = false; 
+  $scope.deletestory = function(story, user) {
+    console.log("deletestory!", story, user);
+    if (!user) return;
+    if (story.startedby !== user.config.data.username) return;
+    console.log("Delete story! Passed error handling");
+    $scope.isdeleting = !$scope.isdeleting; 
+  }
+
+  $scope.remove = function(){
+    Story.remove(storyid).then(function(){
+      $state.go('home');
+    })
+  }
+
   
 });
