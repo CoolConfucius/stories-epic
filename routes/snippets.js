@@ -52,3 +52,5 @@ router.put('/snippets/:snippetid', function(req, res, next) {
     })
   });
 });
+
+module.exports = router;
