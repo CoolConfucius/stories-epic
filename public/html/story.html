@@ -73,7 +73,7 @@
     <div ng-repeat='snippet in story.snippets track by $index' class="snippet">
       <div class="row">
         <a href="#/profile/{{snippet.writtenby}}" class="authorname col-sm-8">{{snippet.writtenby}}</a>
-        <a href="#/snippet/{{snippet._id}}" ng-if="snippet.writtenby === user.config.data.username" class="col-sm-2 authorname glyphicon glyphicon-pencil"></a>
+        <a href="#/snippet/{{snippet._id}}" ng-if="snippet.writtenby === user.config.data.username" class="col-sm-1 col-sm-offset-3 authorname glyphicon glyphicon-pencil"></a>
       </div>
       <p>{{snippet.content}} </p>
     </div>
