@@ -30,9 +30,8 @@
       <span class="glyphicon glyphicon-trash"></span>
       Delete Story
     </button>
-
-    <!-- <textarea ng-if="iseditstory" ng-model="editstory.opening" name="editstoryopening" id="" cols="30" rows="10"></textarea> -->
   </div>
+
   <div ng-if="iseditstory" class="form col-sm-8 col-sm-offset-2">
     <div class="input-row">
       <h3>Story Title</h3>
@@ -54,6 +53,7 @@
     <div class="input-row">
       <h3>Starting Snippet</h3>
       <textarea ng-model="newstory.opening" name="start-snippet" id="" cols="30" rows="10"></textarea>
+      <button ng-click="editstory(story, user)" type="submit" class="btn publish-snippet">Cancel Edit</button>
       <button ng-click="openstory(newstory, user)" type="submit" class="btn publish-snippet">Save Changes</button>
     </div>
 
@@ -69,7 +69,6 @@
       <!-- </div> -->
       <p>{{story.opening}} </p>
     </div>
-    <br>
     <div ng-repeat='snippet in story.snippets track by $index' class="snippet">
       <div class="row">
         <a href="#/profile/{{snippet.writtenby}}" class="authorname col-sm-8">{{snippet.writtenby}}</a>
