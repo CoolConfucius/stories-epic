@@ -15,7 +15,7 @@ app.controller('snippetCtrl', function($scope, $rootScope, $state, $stateParams,
 
   $scope.savechanges = function(editcontent){
     console.log(editcontent);
-    Snippet.edit()
+    Snippet.edit(snippetid, editcontent);
   };
 
   $scope.isdeleting = false; 

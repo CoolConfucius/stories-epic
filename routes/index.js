@@ -69,9 +69,11 @@ router.get('/snippets/:snippetid', function(req, res, next) {
 });
 
 router.put('/snippets/:snippetid', function(req, res, next) {
-  Snippet.findById(req.params.snippetid, function(err, story){
+  console.log("here?", req.body);
+  // MAKE SURE IT'S A JSON OBJECT
+  Snippet.findById(req.params.snippetid, function(err, snippet){
     if(err) return res.status(400).send(err); 
-    snippet.content = req.body;  
+    snippet.content = req.body.content;  
     snippet.save(function(err, savedSnippet){
       res.send(err || savedSnippet);
     })

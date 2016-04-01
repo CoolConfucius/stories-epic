@@ -12,7 +12,7 @@ app.service('Snippet', function($http) {
   };
 
   this.edit = function(snippetid, editcontent){
-    return $http.put(`/snippets/${snippetid}`, editcontent)
+    return $http.put(`/snippets/${snippetid}`, {content: editcontent})
   }
 
 });
