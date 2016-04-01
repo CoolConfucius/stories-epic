@@ -8,7 +8,7 @@ var Story = require('../models/story');
 
 var router = express.Router();
 
-router.post('/snippets', function(req, res, next){
+router.post('/', function(req, res, next){
   Snippet.add(req.body, function(err, snippet){    
     if (err) return res.status(400).send(err);
     
@@ -34,7 +34,7 @@ router.post('/snippets', function(req, res, next){
   });
 })
 
-router.get('/snippets/:snippetid', function(req, res, next) {
+router.get('/:snippetid', function(req, res, next) {
   // console.log("getting snippet with id,", req.params.storyid);
   Snippet.findById(req.params.snippetid, function(err, snippet){
     if(err) return res.status(400).send(err); 
@@ -43,7 +43,7 @@ router.get('/snippets/:snippetid', function(req, res, next) {
   });
 });
 
-router.put('/snippets/:snippetid', function(req, res, next) {
+router.put('/:snippetid', function(req, res, next) {
   Snippet.findById(req.params.snippetid, function(err, snippet){
     if(err) return res.status(400).send(err); 
     snippet.content = req.body.content;  
