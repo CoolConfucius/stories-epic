@@ -1,7 +1,3 @@
-// 'use strict';
-
-// var app = angular.module("app"); 
-
 app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Snippet ) {
   $rootScope.user = $localStorage.token; 
 
