@@ -31,6 +31,8 @@ router.post('/login', function(req, res, next){
   });
 })
 
+
+// Snippet routes
 router.post('/snippets', function(req, res, next){
   Snippet.add(req.body, function(err, snippet){    
     if (err) return res.status(400).send(err);
@@ -57,6 +59,19 @@ router.post('/snippets', function(req, res, next){
   });
 })
 
+router.get('snippets/:snippetid', function(req, res, next) {
+  // console.log("getting story with id,", req.params.storyid);
+  Snippet.findById(req.params.snippetid, function(err, snippet){
+    if(err) return res.status(400).send(err); 
+    // console.log("Found it,", snippet);
+    res.send(snippet); 
+  });
+});
+
+
+
+
+// User routes
 router.get('/users/:username', function(req, res, next) {
   // console.log("getting user with username,", req.params.username);
   User.findOne({ username: req.params.username.toString()})
