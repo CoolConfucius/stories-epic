@@ -23,10 +23,10 @@ app.service('Story', function($http) {
   }
 
   this.edit = function(storyid, editstoryobj) {
-    return $http.put(`/stories/${story}`, editstoryobj)
+    return $http.put(`/stories/${storyid}`, editstoryobj)
   };
 
   this.remove = function(story) {
-    return $http.delete(`/stories/${story}`)
+    return $http.delete(`/stories/${storyid}`)
   };
 });
