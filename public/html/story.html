@@ -64,12 +64,12 @@
 
   <div ng-hide="iseditstory" class="story-box col-sm-8 col-sm-offset-2">
     <div class="snippet">
-      <div class="row">
+      <!-- <div class="row"> -->
         <!-- <a href="#/profile/{{story.startedby}}" class="authorname col-sm-8">{{story.startedby}}</a> -->
-      </div>
+      <!-- </div> -->
       <p>{{story.opening}} </p>
     </div>
-
+    <br>
     <div ng-repeat='snippet in story.snippets track by $index' class="snippet">
       <div class="row">
         <a href="#/profile/{{snippet.writtenby}}" class="authorname col-sm-8">{{snippet.writtenby}}</a>
