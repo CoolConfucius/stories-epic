@@ -21,13 +21,20 @@
     <div class="btn add-snippet">Add Snippet</div>
     <div class="btn favorite fa fa-heart"></div>
   </div>
-
+  <div ng-if="story.startedby === user.config.data.username" class="row">
+    <button ng-click="editstory(story, user)" class="col-sm-2 btn">
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit Story
+    </button>
+    <button ng-if="iseditstory" class="col-sm-2 btn btn">
+      <span class="glyphicon glyphicon-trash"></span>
+      Delete Story
+    </button>
+  </div>
   <div class="story-box col-sm-8 col-sm-offset-2">
     <div class="snippet">
       <div class="row">
-        <a href="#/profile/{{story.startedby}}" class="authorname col-sm-8">{{story.startedby}}</a>
-        <button ng-click="editstory(story, user)" ng-if="story.startedby === user.config.data.username" class="col-sm-2 btn btn-sm glyphicon glyphicon-pencil"></button>
-        <button ng-if="story.startedby === user.config.data.username && iseditstory" class="col-sm-2 btn btn-sm glyphicon glyphicon-trash"></button>
+        <!-- <a href="#/profile/{{story.startedby}}" class="authorname col-sm-8">{{story.startedby}}</a> -->
       </div>
       <p>{{story.opening}} </p>
     </div>
