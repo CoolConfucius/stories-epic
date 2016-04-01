@@ -50,5 +50,14 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     $scope.iseditstory = !$scope.iseditstory; 
   }
 
+  $scope.savechanges = function(editstoryobj){
+    console.log(editstoryobj);
+    Story.edit(storyid, editstoryobj).then(function(){
+      $scope.story.title = editstoryobj.title;
+      $scope.story.opening = editstoryobj.opening;
+      $scope.story.title = editstoryobj.title === "Private";
+    });
+  };
+
   
 });
