@@ -7,9 +7,16 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   
   var storyid = $state.params.storyid;
 
+  $scope.editstoryobj = {}; 
+
   Story.read(storyid)
   .then(function(res) {
     $scope.story = res.data; 
+    $scope.editstoryobj = {
+      title: res.data.title, 
+      isprivate: res.data.isprivate ? "Private" : "Public", 
+      opening: res.data.opening
+    }
   });
 
   $scope.addsnippet = function(snippet, user){

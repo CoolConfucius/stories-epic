@@ -35,12 +35,12 @@
   <div ng-if="iseditstory" class="form col-sm-8 col-sm-offset-2">
     <div class="input-row">
       <h3>Story Title</h3>
-      <input ng-model="editstory.title" type="text" required="required" class="form-control"/>
+      <input ng-model="editstoryobj.title" type="text" required="required" class="form-control"/>
     </div>
 
     <div class="input-row">
       <h3>Writing Permission</h3>
-      <select name="isprivate" ng-model="editstory.isprivate">
+      <select name="isprivate" ng-model="editstoryobj.isprivate">
         <option name="Public" value="Public">Public</option>
         <option name="Private" value="Private">Private</option>
       </select>
@@ -52,9 +52,9 @@
 
     <div class="input-row">
       <h3>Starting Snippet</h3>
-      <textarea ng-model="editstory.opening" name="start-snippet" id="" cols="30" rows="10"></textarea>
+      <textarea ng-model="editstoryobj.opening" name="start-snippet" id="" cols="30" rows="10"></textarea>
       <button ng-click="editstory(story, user)" class="btn publish-snippet">Cancel Edit</button>
-      <button ng-click="savechanges(editstory, user)" type="submit" class="btn publish-snippet">Save Changes</button>
+      <button ng-click="savechanges(editstoryobj, user)" type="submit" class="btn publish-snippet">Save Changes</button>
     </div>
 
 
