@@ -9,6 +9,6 @@ app.service('Snippet', function($http) {
 
   this.read = function(snippetid){
     return $http.get(`/snippets/${snippetid}`)
-  }
+  };
 
 });

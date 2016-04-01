@@ -59,8 +59,8 @@ router.post('/snippets', function(req, res, next){
   });
 })
 
-router.get('snippets/:snippetid', function(req, res, next) {
-  // console.log("getting story with id,", req.params.storyid);
+router.get('/snippets/:snippetid', function(req, res, next) {
+  // console.log("getting snippet with id,", req.params.storyid);
   Snippet.findById(req.params.snippetid, function(err, snippet){
     if(err) return res.status(400).send(err); 
     // console.log("Found it,", snippet);

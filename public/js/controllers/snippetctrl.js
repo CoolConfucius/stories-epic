@@ -1,10 +1,12 @@
 app.controller('snippetCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Snippet ) {
   $rootScope.user = $localStorage.token; 
-  
+
+  console.log("in snippetCtrl");  
   var snippetid = $state.params.snippetid;
 
   Snippet.read(snippetid)
   .then(function(res) {
+    console.log("read snippet");
     $scope.snippet = res.data; 
   });
 
