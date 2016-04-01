@@ -31,22 +31,21 @@ router.post('/', function(req, res, next) {
   });
 });
 
-router.put('/:id', function(req, res, next) {
-  console.log("post story", req.params.id);
-  Story.findById(req.params.id, function(err, story){
+router.put('/:storyid', function(req, res, next) {
+  Story.findById(req.params.storyid, function(err, story){
     if(err) return res.status(400).send(err); 
-    // console.log("Found one,", story);
-    story.iscomplete = !story.iscomplete; 
-    story.save(function(err, savedTodo){
-
-      res.send(err || savedTodo);
+    story.title = req.body.title; 
+    story.opening = req.body.opening; 
+    story.isprivate = req.body.isprivate === "Private"; 
+    story.save(function(err, savedStory){
+      res.send(err || savedStory);
     })
   });
 });
 
-router.delete('/:id', function(req, res, next) {
-  // console.log("post story", req.params.id);
-  Story.findById(req.params.id, function(err, story){
+router.delete('/:storyid', function(req, res, next) {
+  // console.log("post story", req.params.storyid);
+  Story.findById(req.params.storyid, function(err, story){
     if(err) return res.status(400).send(err); 
     console.log("Found one,", story);
     story.remove(function(err){
