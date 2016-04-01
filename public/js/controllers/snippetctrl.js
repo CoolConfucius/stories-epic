@@ -5,7 +5,7 @@ app.controller('snippetCtrl', function($scope, $rootScope, $state, $stateParams,
 
   Snippet.read(snippetid)
   .then(function(res) {
-    $scope.story = res.data; 
+    $scope.snippet = res.data; 
   });
 
 
