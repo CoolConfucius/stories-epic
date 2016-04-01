@@ -1,6 +1,6 @@
-'use strict';
+// 'use strict';
 
-var app = angular.module("app"); 
+// var app = angular.module("app"); 
 
 app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Snippet, Profile ) {
   $rootScope.user = $localStorage.token; 

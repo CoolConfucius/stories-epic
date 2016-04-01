@@ -1,6 +1,6 @@
-'use strict';
+// 'use strict';
 
-var app = angular.module("app"); 
+// var app = angular.module("app"); 
 
 app.service('Snippet', function($http) {
   this.add = function(snippet) {

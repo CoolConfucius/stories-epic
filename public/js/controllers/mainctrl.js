@@ -1,6 +1,6 @@
-'use strict';
+// 'use strict';
 
-var app = angular.module("app"); 
+// var app = angular.module("app"); 
 
 app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $stateParams, Auth, Story){
   
