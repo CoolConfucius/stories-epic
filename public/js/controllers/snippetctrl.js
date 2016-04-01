@@ -19,4 +19,16 @@ app.controller('snippetCtrl', function($scope, $rootScope, $state, $stateParams,
     console.log("Edit snippet! Passed error handling");
     $scope.isediting = !$scope.isediting; 
   }
+
+  $scope.isdeleting = false; 
+  $scope.deletesnippet = function(snippet, user) {
+    console.log("deletesnippet snippet!", snippet, user);
+    if (!user) return;
+    if (snippet.writtenby !== user.config.data.username) return;
+    console.log("Delete snippet! Passed error handling");
+    $scope.isdeleting = !$scope.isdeleting; 
+  }
+
+
+
 });
