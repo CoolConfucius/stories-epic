@@ -9,7 +9,10 @@
     {{snippet.content}}
   </pre>
 
-  <button ng-click="editsnippet(snippet, user)" ng-if="snippet.writtenby === user.config.data.username" class="col-sm-2 btn btn-sm glyphicon glyphicon-pencil"></button>
+  <button ng-click="editsnippet(snippet, user)" ng-if="snippet.writtenby === user.config.data.username" class="col-sm-2 btn">
+    <span class="glyphicon glyphicon-pencil"></span>
+    Save changes
+  </button>
   <button ng-click="deletesnippet(snippet, user)" ng-if="snippet.writtenby === user.config.data.username && isediting" class="col-sm-2 btn btn-sm glyphicon glyphicon-trash"></button>
   <a href="#/story/{{snippet.storyid}}" class="btn">Go back to {{snippet.storytitle}}</a>
 
