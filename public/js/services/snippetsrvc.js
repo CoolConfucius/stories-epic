@@ -11,4 +11,8 @@ app.service('Snippet', function($http) {
     return $http.put(`/snippets/${snippetid}`, {content: editcontent})
   }
 
+  this.remove = function(snippetid) {
+    return $http.delete(`/snippets/${snippetid}`)
+  };
+
 });
