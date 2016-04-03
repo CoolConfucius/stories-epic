@@ -67,11 +67,11 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
   $scope.sorttext = "-recent";
   $scope.sort = function(key){
     console.log("sort! \n", key);
-    if ($scope.sorttext === key) {
-      $scope.sorttext = '-'+key;   
-    } else {
+    // if ($scope.sorttext === key) {
+    //   $scope.sorttext = '-'+key;   
+    // } else {
       $scope.sorttext = key; 
-    }
+    // }
   };
 
   $scope.privatefilter = false; 
