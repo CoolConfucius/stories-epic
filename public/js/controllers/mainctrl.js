@@ -74,6 +74,12 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     }
   };
 
+  $scope.privatefilter = false; 
+  $scope.filterisprivate = false; 
+  $scope.filter = function(){
+    $scope.privatefilter = !fal$scope.privatefilterse; 
+  }
+
   $scope.newstory = {
     title: "Default title",
     isprivate: "Public",
