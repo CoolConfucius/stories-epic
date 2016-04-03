@@ -76,8 +76,19 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
 
   $scope.privatefilter = false; 
   $scope.filterisprivate = false; 
-  $scope.filter = function(){
-    $scope.privatefilter = !fal$scope.privatefilterse; 
+  $scope.filter = function(text){
+    switch(text){
+      case 'private':
+        $scope.privatefilter = true; 
+        $scope.filterisprivate = true;
+        break;
+      case 'public':
+        $scope.privatefilter = true; 
+        $scope.filterisprivate = false;
+        break;
+      default: 
+        $scope.privatefilter = false; 
+    }
   }
 
   $scope.newstory = {
