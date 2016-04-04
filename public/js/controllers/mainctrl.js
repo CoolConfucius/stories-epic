@@ -61,7 +61,6 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
 
   // Story Related:
   $scope.getStories = Story.getStories(function(){
-    console.log("mainCtrl ctrl");
     $rootScope.stories = Story.data; 
     $scope.stories = $rootScope.stories;
   });
@@ -121,18 +120,5 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
       $state.go('home');
     }); 
   };
-
-  $scope.toggle = function(story){
-    var realIndex = $scope.stories.indexOf(story); 
-    $scope.stories[realIndex].iscomplete = !$scope.stories[realIndex].iscomplete;
-    Story.toggle(story._id.toString()); 
-  }
-
-  $scope.remove = function(story){
-    var realIndex = $scope.stories.indexOf(story); 
-    $scope.stories.splice(realIndex, 1);
-    Story.remove(story._id.toString()); 
-  }
-
 
 })
