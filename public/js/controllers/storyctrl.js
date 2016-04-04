@@ -37,9 +37,10 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       content: "default content"
     }
     Snippet.add(newObj).then(function(savedSnippet){
+      var writtenby = user ? user.config.data.username : 'Troll'
       $scope.story.snippets.push({
         content: snippet.content, 
-        writtenby: user.config.data.username,
+        writtenby: writtenby,
         _id: savedSnippet.data._id
       });
     }); 
