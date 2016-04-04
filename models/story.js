@@ -44,7 +44,8 @@ storySchema.statics.add = function (story, cb) {
     isprivate: story.isprivate, 
     opening: story.opening,
     userid: userid,
-    startedby: startedby
+    startedby: startedby,
+    recentby: startedby
   });
   newstory.save(function(err, savedStory) {
     if (err) return cb(err);
