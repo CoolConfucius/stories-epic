@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express');
+var moment = require('moment');
 
 var User = require('../models/user');
 var Snippet = require('../models/snippet');
@@ -16,6 +17,9 @@ router.post('/', function(req, res, next){
       if (err || !story) return res.status(400).send(err); 
       console.log("Here's the story \n", story);
       story.snippets.push(snippet._id);
+      story.recent = Date.now(); 
+      story.recentlong = moment().format('MM/DD/YYYY, h:mm a');
+      story.recentshort = moment().format('MM/DD/YYYY');
       story.save(function(err, savedStory){
         if (snippet.userid) {
           User.findById(snippet.userid, function(err, user){

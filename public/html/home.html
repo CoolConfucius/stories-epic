@@ -41,7 +41,7 @@
   </div>
 
   <div ng-repeat='item in stories | orderBy:sorttext | filter: searchtext track by $index' ng-if="!privatefilter || item.isprivate === filterisprivate">
-    <!-- <h6>{{item}}</h6> -->
+    <h6>{{item}}</h6>
     <div ng-class="{private: item.isprivate }" class="panel panel-default story-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
         <p>Started by: <a href="#/profile/{{item.startedby}}">{{item.startedby}}</a> | Started on: {{item.short}} | Most recent addition: {{item.recentlong}} | {{item.snippets.length}} snippets | {{item.views}} views</p>
