@@ -109,7 +109,7 @@
       <p>Birthday:</p>
     </div>
     <div ng-if="profile.birthday" class="col-sm-6">
-      <p>{{profile.birthday}}</p>
+      <p>{{profile.birthday | date:'MM/dd/yyyy'}}</p>
     </div>
 
     <div ng-if="profile.gender" class="col-sm-6">
