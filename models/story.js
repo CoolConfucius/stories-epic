@@ -20,6 +20,7 @@ var storySchema = Schema({
   recent: { type: Date, default: Date.now() },
   recentlong: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
   recentshort: { type: String, default: moment().format('MM/DD/YYYY') }, 
+  recentby: { type: String }, 
   isprivate: { type: Boolean }, 
   views: { type: Number, default: 1 }, 
   opening: { type: String }, 
