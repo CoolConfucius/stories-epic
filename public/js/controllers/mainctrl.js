@@ -6,6 +6,8 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     $rootScope.username = $rootScope.user.config.data.username; 
   };
 
+  $scope.searchtext = ''; 
+
   $scope.register = function(){
     console.log($scope.regpassword, $scope.regconfirmpassword, "\n Register! Scope password! \n");
     if ($scope.regpassword !== $scope.regconfirmpassword) {
