@@ -1,12 +1,14 @@
 <!-- <div class="jumbotron text-center">
   <h1>Collaborative Stories</h1>
 </div> -->
-<form class="navbar-form navbar-left" role="search">
-  <div class="form-group">
-    <input ng-model="navsearch" type="text" class="form-control" placeholder="Search">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+<div class="navbar-collapse collapse">
+  <form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+      <input ng-model="navsearch" type="text" class="form-control" placeholder="Search">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
 <div class="container" id="home">
   <h1>Browse Stories</h1>
 
@@ -43,7 +45,7 @@
   </div>
 
   <div ng-repeat='item in stories | orderBy:sorttext track by $index' ng-if="!privatefilter || item.isprivate === filterisprivate">
-    <h6>{{item}}</h6>
+    <!-- <h6>{{item}}</h6> -->
     <div ng-class="{private: item.isprivate }" class="panel panel-default story-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
         <p>Started by: <a href="#/profile/{{item.startedby}}">{{item.startedby}}</a> | Started on: {{item.short}} | Most recent addition: {{item.recentlong}} | {{item.snippets.length}} snippets | {{item.views}} views</p>
