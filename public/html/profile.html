@@ -24,7 +24,7 @@
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
             <ul>
-              <li ng-repeat="story in profile.stories">
+              <li ng-repeat="story in profile.stories | orderBy:-story.startdate">
                 <a href="#/story/{{story._id}}">
                   {{story.title}}
                 </a>
