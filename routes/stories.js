@@ -20,7 +20,10 @@ router.get('/:storyid', function(req, res, next) {
   .exec(function(err, story){
     if(err) return res.status(400).send(err); 
     // console.log("Found it,", story);
-    res.send(story); 
+    story.views++; 
+    story.save(function(err, savedStory){
+      res.send(story); 
+    })
   });
 });
 
