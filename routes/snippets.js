@@ -20,6 +20,7 @@ router.post('/', function(req, res, next){
       story.recent = Date.now(); 
       story.recentlong = moment().format('MM/DD/YYYY, h:mm a');
       story.recentshort = moment().format('MM/DD/YYYY');
+      story.recentby = snippet.writtenby; 
       story.save(function(err, savedStory){
         if (snippet.userid) {
           User.findById(snippet.userid, function(err, user){
