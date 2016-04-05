@@ -89,9 +89,9 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
   }
 
   $scope.newstory = {
-    title: "Default title",
+    title: "",
     isclosed: "Open",
-    opening: "Default starting snippet."
+    opening: ""
   };
 
   $scope.story = {};
