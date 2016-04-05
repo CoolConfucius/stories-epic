@@ -11,7 +11,7 @@
         <h3>{{story.title}}</h3>
         <h5>{{story.opening}}</h5>
         <a href="#/story/{{story._id}}" class="btn read-story">Read</a>
-        <div ng-if="user.config.data.username === profile.username" ng-click="unfavorite(user.config.data.username, story._id)" class="btn glyphicon glyphicon-heart-empty">
+        <div ng-if="user.config.data.username === profile.username" ng-click="unfave(user.config.data.username, story._id)" class="btn glyphicon glyphicon-heart-empty">
       </div>
     </div>
   </div>
