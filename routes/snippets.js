@@ -15,7 +15,7 @@ router.post('/', function(req, res, next){
     
     Story.findById(snippet.storyid, function(err, story){
       if (err || !story) return res.status(400).send(err); 
-      console.log("Here's the story \n", story);
+      // console.log("Here's the story \n", story);
       story.snippets.push(snippet._id);
       story.recent = Date.now(); 
       story.recentlong = moment().format('MM/DD/YYYY, h:mm a');
