@@ -1,5 +1,7 @@
 <div class="container" id="home">
-  <h1>Stories started by {{profile.username}}</h1>
+  <h1>Stories started by 
+    <a href="#/profile/{{profile.username}}">{{profile.username}}</a>
+  </h1>
 
   <div ng-repeat='story in profile.stories'>
     <h6>{{story}}</h6>
