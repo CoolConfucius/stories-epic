@@ -9,9 +9,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
   $scope.searchtext = ''; 
 
   $scope.register = function(){
-    console.log($scope.regpassword, $scope.regconfirmpassword, "\n Register! Scope password! \n");
     if ($scope.regpassword !== $scope.regconfirmpassword) {
-      console.log($scope.regpassword, "\n Scope password! \n");
       swal("Passwords not the same!");
       return;
     };
@@ -21,7 +19,6 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     }
     Auth.register(user)
     .then((data)=>{
-      console.log('data: ', data);
       if (data.data !== "Username already taken") {
         $localStorage.token = data; 
         $rootScope.user = data;
@@ -43,7 +40,6 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
 
     Auth.login(user)
     .then((data)=>{
-      console.log('data: ', data);
       $localStorage.token = data; 
       $rootScope.user = data;
       $state.go('home');
@@ -111,7 +107,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
       opening: story.opening, 
       user: userdata
     }
-    console.log("new object, \n", newObj);
+    
     $scope.newstory = {
       title: "",
       isclosed: "Open",
