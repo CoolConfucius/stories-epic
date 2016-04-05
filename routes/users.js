@@ -9,7 +9,6 @@ var Story = require('../models/story');
 var router = express.Router();
 
 router.get('/:username', function(req, res, next) {
-  // console.log("getting user with username,", req.params.username);
   User.findOne({ username: req.params.username.toString()})
   .populate('stories')
   .populate('snippets')
