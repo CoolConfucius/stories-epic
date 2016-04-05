@@ -18,7 +18,7 @@
     <br>
     <div ng-if="!story.isprivate" class="tag public">Public</div>
     <div ng-if="story.isprivate" class="tag private">Private</div>
-    <div class="btn favorite fa fa-heart"></div>
+    <div ng-click="addfavorite(story._id)" class="btn favorite fa fa-heart"></div>
   </div>
   <div ng-if="story.startedby === user.config.data.username" class="row">
     <button ng-click="editstory(story, user)" class="col-sm-2 btn">
