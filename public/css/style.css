@@ -52,10 +52,10 @@ h5 {
   padding-top: 15px;
   background-color: honeydew;
 }
-#home .story-preview.private {
+#home .story-preview.closed {
   background-color: seashell;
 }
-/*#home .story-preview.public {
+/*#home .story-preview.open {
   background-color: honeydew;
 }*/
 #home .read-story {
@@ -111,7 +111,7 @@ h5 {
   margin-right: 15px;
   margin-bottom: 10px;
 }
-#new-story input[type=radio]:checked + label.public {
+#new-story input[type=radio]:checked + label.open {
   background-color: honeydew;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -119,7 +119,7 @@ h5 {
   color: #444;
   margin-right: 15px;
 }
-#new-story input[type=radio]:checked + label.private {
+#new-story input[type=radio]:checked + label.closed {
   background-color: seashell;
   border: 1px solid #ccc;
   border-radius: 4px;

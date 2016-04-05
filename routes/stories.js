@@ -39,7 +39,7 @@ router.put('/:storyid', function(req, res, next) {
     if(err) return res.status(400).send(err); 
     story.title = req.body.title; 
     story.opening = req.body.opening; 
-    story.isprivate = req.body.isprivate === "Private"; 
+    story.isclosed = req.body.isclosed === "Closed"; 
     story.save(function(err, savedStory){
       res.send(err || savedStory);
     })

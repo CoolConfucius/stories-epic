@@ -21,7 +21,7 @@ var storySchema = Schema({
   recentlong: { type: String, default: moment().format('MM/DD/YYYY, h:mm a') }, 
   recentshort: { type: String, default: moment().format('MM/DD/YYYY') }, 
   recentby: { type: String }, 
-  isprivate: { type: Boolean }, 
+  isclosed: { type: Boolean }, 
   views: { type: Number, default: 1 }, 
   opening: { type: String }, 
   snippets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Snippet" }]
@@ -41,7 +41,7 @@ storySchema.statics.add = function (story, cb) {
 
   var newstory = new Story({
     title: story.title,
-    isprivate: story.isprivate, 
+    isclosed: story.isclosed, 
     opening: story.opening,
     userid: userid,
     startedby: startedby,

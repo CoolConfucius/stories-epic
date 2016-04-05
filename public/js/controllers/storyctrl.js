@@ -14,7 +14,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     $scope.story = res.data; 
     $scope.editstoryobj = {
       title: res.data.title, 
-      isprivate: res.data.isprivate ? "Private" : "Public", 
+      isclosed: res.data.isclosed ? "Closed" : "Open", 
       opening: res.data.opening
     }
   });
@@ -38,7 +38,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     }
     Snippet.add(newObj).then(function(savedSnippet){
       // console.log("new obj", newObj);
-      var writtenby = user ? user.config.data.username : 'Troll'
+      var writtenby = user ? user.config.data.username : 'Anonymous'
       $scope.story.snippets.push({
         content: snippet.content, 
         writtenby: writtenby,
@@ -60,7 +60,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     Story.edit(storyid, editstoryobj).then(function(){
       $scope.story.title = editstoryobj.title;
       $scope.story.opening = editstoryobj.opening;
-      $scope.story.isprivate = editstoryobj.isprivate === "Private";
+      $scope.story.isclosed = editstoryobj.isclosed === "Closed";
       $scope.iseditstory = false; 
     });
   };
@@ -78,6 +78,12 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     Story.remove(storyid).then(function(){
       $state.go('home');
     })
+  }
+
+
+  $scope.addfavorite = function(storyid){
+    console.log("storyid", storyid);
+
   }
 
   

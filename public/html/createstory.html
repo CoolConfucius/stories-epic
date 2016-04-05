@@ -10,16 +10,16 @@
 
     <div class="input-row">
       <h3>Writing Permission</h3>
-      <!-- <input type="radio" name="permission" id="public"><label for="public" class="public">Public</label>
-      <input type="radio" name="permission" id="private"><label for="private" class="private">Private</label> -->
+      <!-- <input type="radio" name="permission" id="open"><label for="open" class="open">Open</label>
+      <input type="radio" name="permission" id="closed"><label for="closed" class="closed">Closed</label> -->
       <select name="isprivate" ng-model="newstory.isprivate">
-        <option name="Public" value="Public">Public</option>
-        <option name="Private" value="Private">Private</option>
+        <option name="Open" value="Open">Open</option>
+        <option name="Closed" value="Closed">Closed</option>
       </select>
       <br>
-      <span>Public: Anyone can read and add onto this story</span>
+      <span>Open: Anyone can read and add onto this story</span>
       <br>
-      <span>Private: Anyone can read this story, but only people you select can add onto it</span>
+      <span>Closed: Anyone can read this story, but only people you select can add onto it</span>
     </div>
 
     <div class="input-row">

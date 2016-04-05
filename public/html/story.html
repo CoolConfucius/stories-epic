@@ -2,7 +2,7 @@
   <pre>
     {{story._id}}
     {{story.title}}
-    {{story.isprivate}}
+    {{story.isclosed}}
     {{story.opening}}
     {{story.userid}}
     {{story.startedby}}
@@ -16,8 +16,8 @@
        | Started on: {{story.short}} | Most recent addition: {{story.recentlong}}
     </span>
     <br>
-    <div ng-if="!story.isprivate" class="tag public">Public</div>
-    <div ng-if="story.isprivate" class="tag private">Private</div>
+    <div ng-if="!story.isclosed" class="tag open">Open</div>
+    <div ng-if="story.isclosed" class="tag closed">Closed</div>
     <div ng-click="addfavorite(story._id)" class="btn favorite fa fa-heart"></div>
   </div>
   <div ng-if="story.startedby === user.config.data.username" class="row">
@@ -40,14 +40,14 @@
 
     <div class="input-row">
       <h3>Writing Permission</h3>
-      <select name="isprivate" ng-model="editstoryobj.isprivate">
-        <option name="Public" value="Public">Public</option>
-        <option name="Private" value="Private">Private</option>
+      <select name="isclosed" ng-model="editstoryobj.isclosed">
+        <option name="Open" value="Open">Open</option>
+        <option name="Closed" value="Closed">Closed</option>
       </select>
       <br>
-      <span>Public: Anyone can read and add onto this story</span>
+      <span>Open: Anyone can read and add onto this story</span>
       <br>
-      <span>Private: Anyone can read this story, but only people you select can add onto it</span>
+      <span>Closed: Anyone can read this story, but only people you select can add onto it</span>
     </div>
 
     <div class="input-row">
