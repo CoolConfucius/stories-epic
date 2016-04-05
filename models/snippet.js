@@ -33,7 +33,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
     writtenby = payload.username; 
   } else {
     userid = null; 
-    writtenby = "Troll"; 
+    writtenby = "Anonymous"; 
   }
 
   // console.log("newsnippet story title \n", snippet.storytitle);

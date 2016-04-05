@@ -36,7 +36,7 @@ storySchema.statics.add = function (story, cb) {
     startedby = payload.username; 
   } else {
     userid = null; 
-    startedby = "Troll"; 
+    startedby = "Anonymous"; 
   }
 
   var newstory = new Story({
