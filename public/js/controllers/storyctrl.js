@@ -81,8 +81,8 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   }
 
 
-  $scope.addfavorite = function(storyid){
-    console.log("storyid", storyid);
+  $scope.addfavorite = function(storyid, userid){
+    console.log("storyid", storyid, userid);
 
   }
 
