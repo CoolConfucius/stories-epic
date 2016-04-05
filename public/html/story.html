@@ -12,7 +12,8 @@
     <h1 class="title">{{story.title}}</h1>
     <span>
       Started by: 
-      <a href="#/profile/{{story.startedby}}">{{story.startedby}}</a>
+      <a ng-if="story.starteby !== 'Anonymous'" href="#/profile/{{story.startedby}}">{{story.startedby}}</a>
+      <span ng-if="story.starteby === 'Anonymous'">Anonymous</span>
        | Started on: {{story.short}} | Most recent addition: {{story.recentlong}}
     </span>
     <br>
@@ -71,7 +72,8 @@
     <br>
     <div ng-repeat='snippet in story.snippets track by $index' class="snippet">
       <div class="row">
-        <a href="#/profile/{{snippet.writtenby}}" class="authorname col-sm-8">{{snippet.writtenby}}</a>
+        <a ng-if="snippet.writtenby !== 'Anonymous'" href="#/profile/{{snippet.writtenby}}" class="authorname col-sm-8">{{snippet.writtenby}}</a>
+        <span ng-if="story.writtenby === 'Anonymous'">Anonymous</span>
         <a href="#/snippet/{{snippet._id}}" ng-if="snippet.writtenby === user.config.data.username" class="col-sm-1 col-sm-offset-3 authorname glyphicon glyphicon-pencil"></a>
       </div>
       <p>{{snippet.content}} </p>
