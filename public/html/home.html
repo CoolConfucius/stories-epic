@@ -32,15 +32,15 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="filter-by">
         <li><a ng-click="filter('all')">All Stories</a></li>
-        <li><a ng-click="filter('open')">Public Stories</a></li>
-        <li><a ng-click="filter('closed')">Private Stories</a></li>
+        <li><a ng-click="filter('open')">Open Stories</a></li>
+        <li><a ng-click="filter('closed')">Closed Stories</a></li>
       </ul>
     </div>
 
     <a href="#/createstory" class="btn new-story-btn">New Story</a>
   </div>
 
-  <div ng-repeat='item in stories | orderBy:sorttext | filter: searchtext track by $index' ng-if="!privatefilter || item.isclosed === filterisprivate">
+  <div ng-repeat='item in stories | orderBy:sorttext | filter: searchtext track by $index' ng-if="!privatefilter || item.isclosed === filterisclosed">
     <h6>{{item}}</h6>
     <div ng-class="{closed: item.isclosed }" class="panel panel-default story-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
