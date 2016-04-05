@@ -19,31 +19,26 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     }
     if ($rootScope.user) {
       Story.checkfave($rootScope.user.config.data.username, storyid).then(function(res){
-        console.log("is fave???", res.data);
         $scope.isfave = res.data === 'true'; 
       })
     };
   });
 
-  $scope.addsnippet = function(snippet, user){
-    // console.log(snippet, "here's the snippet");
+  $scope.addsnippet = function(snippet, user){    
     var newObj; 
     var userdata = null;
-    if (user) userdata = user.data;
-    // console.log("$scopestorytitle \n \n", $scope.story.title);
+    if (user) userdata = user.data;    
     newObj = {
       storytitle: $scope.story.title, 
       storyid: storyid,
       startdate: Date.now(),
       content: snippet.content, 
       user: userdata
-    }
-    // console.log("new object, \n", newObj);
+    }    
     $scope.newsnippet = {
       content: "default content"
     }
-    Snippet.add(newObj).then(function(savedSnippet){
-      // console.log("new obj", newObj);
+    Snippet.add(newObj).then(function(savedSnippet){      
       var writtenby = user ? user.config.data.username : 'Anonymous'
       $scope.story.snippets.push({
         content: snippet.content, 
@@ -56,13 +51,11 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   $scope.iseditstory = false; 
   $scope.editstory = function(story, user){
     if (!user) return;
-    if (story.startedby !== user.config.data.username) return;
-    // console.log("Edit story! Passed error handling");
+    if (story.startedby !== user.config.data.username) return;    
     $scope.iseditstory = !$scope.iseditstory; 
   }
 
-  $scope.savechanges = function(editstoryobj){
-    // console.log(editstoryobj);
+  $scope.savechanges = function(editstoryobj){    
     Story.edit(storyid, editstoryobj).then(function(){
       $scope.story.title = editstoryobj.title;
       $scope.story.opening = editstoryobj.opening;
@@ -72,11 +65,9 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   };
 
   $scope.isdeleting = false; 
-  $scope.deletestory = function(story, user) {
-    // console.log("deletestory!", story, user);
+  $scope.deletestory = function(story, user) {    
     if (!user) return;
-    if (story.startedby !== user.config.data.username) return;
-    // console.log("Delete story! Passed error handling");
+    if (story.startedby !== user.config.data.username) return;    
     $scope.isdeleting = !$scope.isdeleting; 
   }
 
@@ -88,7 +79,6 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
 
 
   $scope.addfavorite = function(username, storyid, storystarter){
-    console.log("storyid", storyid, username);
     if (username === storystarter) return swal("Try favorting other users stories instead of your own.");
     Story.favorite(username, storyid).then(function(){
       swal("Added to favorites!")
@@ -97,7 +87,6 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   }
 
   $scope.unfave = function(username, storyid){
-    console.log("storyid", storyid, username);
     Story.unfave(username, storyid).then(function(){
       swal("Removed from favorites!")
       $scope.isfave = false; 
