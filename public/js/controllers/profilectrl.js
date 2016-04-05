@@ -9,16 +9,16 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
     var data = res.data; 
     $scope.profile = data; 
     
-    var snippets = data.snippets; 
-    var snippetstories = [];
-    snippets.forEach(function(entry){
-      if (snippetstories.indexOf(entry.storytitle) === -1) {
-        snippetstories.push(entry.storytitle);
-      }
-    });
+    // var snippets = data.snippets; 
+    // var snippetstories = [];
+    // snippets.forEach(function(entry){
+    //   if (snippetstories.indexOf(entry.storytitle) === -1) {
+    //     snippetstories.push(entry.storytitle);
+    //   }
+    // });
     // console.log(snippets, "SNIPPETS");
     // console.log(snippetstories, "SNIPPETSTORIES");
-    $scope.contributions = snippetstories;
+    // $scope.contributions = snippetstories;
     $scope.editobj = {
       imageurl: data.imageurl,
       aboutme: data.aboutme,
