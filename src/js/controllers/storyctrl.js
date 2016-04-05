@@ -89,6 +89,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
 
   $scope.addfavorite = function(username, storyid, storystarter){
     console.log("storyid", storyid, username);
+    if (username === storystarter) return swal("Try favorting other users stories instead of your own.");
     Story.favorite(username, storyid).then(function(){
       swal("Added to favorites!")
       $scope.isfave = true; 
