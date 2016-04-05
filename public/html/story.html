@@ -12,8 +12,8 @@
     <h1 class="title">{{story.title}}</h1>
     <span>
       Started by: 
-      <a ng-if="story.starteby !== 'Anonymous'" href="#/profile/{{story.startedby}}">{{story.startedby}}</a>
-      <span ng-if="story.starteby === 'Anonymous'">Anonymous</span>
+      <a ng-if="story.startedby !== 'Anonymous'" href="#/profile/{{story.startedby}}">{{story.startedby}}</a>
+      <span ng-if="story.startedby === 'Anonymous'">Anonymous</span>
        | Started on: {{story.short}} | Most recent addition: {{story.recentlong}}
     </span>
     <br>
