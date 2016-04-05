@@ -7,8 +7,8 @@ var jwt = require('jwt-simple');
 var User = require('../models/user');
 var Story = require('../models/story');
 
-console.log(Story, "HERE STORY \n");
-console.log(User, "HERE USER \n");
+// console.log(Story, "HERE STORY \n");
+// console.log(User, "HERE USER \n");
 
 var Schema = mongoose.Schema;
 var Snippet; 
@@ -36,7 +36,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
     writtenby = "Troll"; 
   }
 
-  console.log("newsnippet story title \n", snippet.storytitle);
+  // console.log("newsnippet story title \n", snippet.storytitle);
 
   var newsnippet = new Snippet({
     storytitle: snippet.storytitle,
