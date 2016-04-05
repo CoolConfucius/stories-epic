@@ -2,7 +2,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   $rootScope.user = $localStorage.token; 
 
   $scope.newsnippet = {
-    content: "default content"
+    content: ""
   }
   
   var storyid = $state.params.storyid;
