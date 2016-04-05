@@ -1,0 +1,18 @@
+<div class="container" id="home">
+  <h1>Stories favorited by 
+    <a href="#/profile/{{profile.username}}">{{profile.username}}</a>
+  </h1>
+
+  <div ng-repeat='story in profile.favorites'>
+    <h6>{{story}}</h6>
+    <div ng-class="{closed: story.isclosed }" class="panel panel-default story-preview col-sm-8 col-sm-offset-2">
+      <div class="panel-body">
+        Started on: {{story.short}} | Most recent addition: {{story.recentlong}} by <a href="#/profile/{{story.recentby}}">{{story.recentby}}</a> | {{story.snippets.length}} snippets | {{story.views}} views</p>
+        <h3>{{story.title}}</h3>
+        <h5>{{story.opening}}</h5>
+        <a href="#/story/{{story._id}}" class="btn read-story">Read</a>
+      </div>
+    </div>
+  </div>
+
+</div>
