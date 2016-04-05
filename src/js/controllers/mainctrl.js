@@ -67,7 +67,6 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
 
   $scope.sorttext = "-recent";
   $scope.sort = function(key){
-    // console.log("sort! \n", key);
     $scope.sorttext = key; 
   };
 
@@ -112,9 +111,9 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     }
     console.log("new object, \n", newObj);
     $scope.newstory = {
-      title: "Default title",
+      title: "",
       isclosed: "Open",
-      opening: "Default opening snippet."
+      opening: ""
     }
     Story.add(newObj).then(function(){
       $state.go('home');
