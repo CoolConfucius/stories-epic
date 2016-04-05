@@ -27,6 +27,13 @@ router.put('/:username', function(req, res, next) {
   })
 });
 
+router.get('/checkfave/:username/:storyid', function(req, res, next) {
+  User.checkfave(req.params.username, req.params.storyid, function(err, string){
+    if(err) return res.status(400).send(err); 
+    res.send(string); 
+  })
+});
+
 router.put('/addfave/:username/:storyid', function(req, res, next) {
   User.addfavorite(req.params.username, req.params.storyid, function(err, user){
     if(err) return res.status(400).send(err); 
@@ -34,12 +41,13 @@ router.put('/addfave/:username/:storyid', function(req, res, next) {
   })
 });
 
-router.get('/checkfave/:username/:storyid', function(req, res, next) {
-  User.checkfave(req.params.username, req.params.storyid, function(err, string){
+router.put('/unfave/:username/:storyid', function(req, res, next) {
+  User.unfave(req.params.username, req.params.storyid, function(err, user){
     if(err) return res.status(400).send(err); 
-    res.send(string); 
+    res.send(user); 
   })
 });
+
 
 
 module.exports = router;

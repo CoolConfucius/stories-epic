@@ -30,12 +30,17 @@ app.service('Story', function($http) {
     return $http.delete(`/stories/${storyid}`)
   };
 
+  this.checkfave = function(username, storyid) {
+    return $http.get(`/users/checkfave/${username}/${storyid}`) 
+  }
+  
   this.favorite = function(username, storyid) {
     return $http.put(`/users/addfave/${username}/${storyid}`) 
   }
 
-  this.checkfave = function(username, storyid) {
-    return $http.get(`/users/checkfave/${username}/${storyid}`) 
+  this.unfave = function(username, storyid) {
+    return $http.put(`/users/unfave/${username}/${storyid}`) 
   }
+
 
 });
