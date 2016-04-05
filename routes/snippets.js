@@ -15,7 +15,6 @@ router.post('/', function(req, res, next){
     
     Story.findById(snippet.storyid, function(err, story){
       if (err || !story) return res.status(400).send(err); 
-      // console.log("Here's the story \n", story);
       story.snippets.push(snippet._id);
       story.recent = Date.now(); 
       story.recentlong = moment().format('MM/DD/YYYY, h:mm a');
@@ -38,11 +37,9 @@ router.post('/', function(req, res, next){
   });
 })
 
-router.get('/:snippetid', function(req, res, next) {
-  console.log("getting snippet with id,", req.params.storyid);
+router.get('/:snippetid', function(req, res, next) {  
   Snippet.findById(req.params.snippetid, function(err, snippet){
-    if(err) return res.status(400).send(err); 
-    // console.log("Found it,", snippet);
+    if(err) return res.status(400).send(err);     
     res.send(snippet); 
   });
 });
@@ -59,8 +56,7 @@ router.put('/:snippetid', function(req, res, next) {
 
 router.delete('/:snippetid', function(req, res, next) {
   Snippet.findById(req.params.snippetid, function(err, snippet){
-    if(err) return res.status(400).send(err); 
-    // console.log("Found one,", snippet);
+    if(err) return res.status(400).send(err);     
     snippet.remove(function(err){
       res.status(err ? 400 : 200).send(err || snippet);
     })
