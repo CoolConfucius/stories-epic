@@ -54,11 +54,11 @@ app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams,
   }
 
 
-  $scope.unfave = function(username, storyid){
-    console.log("storyid", storyid, username);
+  $scope.unfave = function(username, storyid, index){
+    console.log("storyid", storyid, username, index);
     Story.unfave(username, storyid).then(function(){
       swal("Removed from favorites!")
-      $scope.isfave = false; 
+      $scope.profile.favorites.splice(index, 1);
     })
   }
 
