@@ -4,8 +4,7 @@
     <a ng-click="editprofile()" href="" class="btn edit-profile-btn fa fa-pencil"> Edit Profile</a>
   </div>
 
-  <div class="row info">
-    <img ng-if="!profile.imageurl" src="http://placehold.it/75" alt="">
+  <div class="row info">    
     <img ng-if="profile.imageurl && !isediting" src="{{profile.imageurl}}" alt="" id="profilepic">
     <h1 class="title">{{profile.username}}</h1>
     <span>Member since: {{profile.short}}</span>
