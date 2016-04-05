@@ -178,14 +178,7 @@ h5 {
 #story .story-box .snippet {
   margin-top: -15px;
 }
-/*#story .story-box .snippet .authorname {
-  font-size: 8px;
-  margin-bottom: 3px;
-  color: papayawhip;
-}
-#story .story-box .snippet .authorname:hover {
-  color: #444;
-}*/
+
 #story .story-box .snippet .authorname {
   font-size: 10px;
   margin-bottom: 0px;
