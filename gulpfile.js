@@ -22,8 +22,7 @@ var config = {
     src: {
       js: './src/js/**/*.js',
       sass: './src/sass/**/*.scss',
-      html: './src/html/**/*.html',
-      images: './src/**/*.+(jpg|png)'
+      html: './src/html/**/*.html'
     }
   }
 };
@@ -36,9 +35,6 @@ gulp.task('clean-css', function(cb) {
 });
 gulp.task('clean-html', function(cb) {
   rimraf(config.paths.dest.html, cb);
-});
-gulp.task('clean-images', function(cb) {
-  rimraf(config.paths.dest.images, cb);
 });
 
 gulp.task('js', ['clean-js'], function() {
@@ -67,18 +63,11 @@ gulp.task('html', ['clean-html'], function() {
     .pipe(gulp.dest(config.paths.dest.html))
 });
 
-gulp.task('images', ['clean-images'], function() {
-  return gulp.src(config.paths.src.images)
-    .pipe(gulp.dest(config.paths.dest.public))
-});
-
-
 gulp.task('watch', function() {
   gulp.watch(config.paths.src.sass, ['css']);
   gulp.watch(config.paths.src.js, ['js']);
   gulp.watch(config.paths.src.html, ['html']);
-  gulp.watch(config.paths.src.images, ['images']);
 });
 
-gulp.task('build', ['js', 'css', 'html', 'images']);
+gulp.task('build', ['js', 'css', 'html']);
 gulp.task('default', ['build', 'watch']);
