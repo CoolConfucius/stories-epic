@@ -100,6 +100,18 @@ userSchema.statics.edit = function(userObj, username, cb) {
   });
 }
 
+userSchema.statics.checkfave = function(username, storyid, cb) {
+  User.findOne({ username: username })
+  .exec(function(err, user){
+    if(err) return res.status(400).send(err); 
+    if (user.favorites.indexOf(storyid) === -1) {
+      cb(null, 'false');
+    } else {
+      cb(null, 'true');
+    }
+  });
+}
+
 userSchema.statics.addfavorite = function(username, storyid, cb) {
   User.findOne({ username: username })
   .exec(function(err, user){
@@ -114,17 +126,21 @@ userSchema.statics.addfavorite = function(username, storyid, cb) {
   });
 }
 
-userSchema.statics.checkfave = function(username, storyid, cb) {
+userSchema.statics.unfavorite = function(username, storyid, cb) {
   User.findOne({ username: username })
   .exec(function(err, user){
     if(err) return res.status(400).send(err); 
-    if (user.favorites.indexOf(storyid) === -1) {
-      cb(null, 'false');
-    } else {
-      cb(null, 'true');
+    var index = user.favorites.indexOf(storyid); 
+    if (index !== -1) {
+      user.favorites.splice(index, 1);
     }
+    user.save(function(err, savedUser){
+      if (err) return cb(err);
+      cb(null, savedUser); 
+    })
   });
 }
+
 
 
 User = mongoose.model('User', userSchema);
