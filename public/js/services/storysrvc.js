@@ -30,7 +30,7 @@ app.service('Story', function($http) {
     return $http.delete(`/stories/${storyid}`)
   };
 
-  this.favorite = function(storyid, username) {
-    
+  this.favorite = function(username, storyid) {
+    return $http.put(`/users/addfave/${username}/${storyid}`) 
   }
 });

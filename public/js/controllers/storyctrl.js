@@ -81,8 +81,11 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
   }
 
 
-  $scope.addfavorite = function(storyid, userid){
-    console.log("storyid", storyid, userid);
+  $scope.addfavorite = function(username, storyid){
+    console.log("storyid", storyid, username);
+    Story.favorite(username, storyid).then(function(){
+      swal("Added to favorites!")
+    })
 
   }
 

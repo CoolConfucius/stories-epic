@@ -26,4 +26,11 @@ router.put('/:username', function(req, res, next) {
   })
 });
 
+router.put('/addfave/:username/:storyid', function(req, res, next) {
+  User.addfavorite(req.params.username, req.params.storyid, function(err, user){
+    if(err) return res.status(400).send(err); 
+    res.send(user); 
+  })
+});
+
 module.exports = router;

@@ -100,5 +100,20 @@ userSchema.statics.edit = function(userObj, username, cb) {
   });
 }
 
+userSchema.statics.addfavorite = function(username, storyid, cb) {
+  User.findOne({ username: username })
+  .exec(function(err, user){
+    if(err) return res.status(400).send(err); 
+    if (user.favorites.indexOf(storyid) === -1) {
+      user.favorites.push(storyid);
+    }
+    user.save(function(err, savedUser){
+      if (err) return cb(err);
+      cb(null, savedUser); 
+    })
+  });
+}
+
+
 User = mongoose.model('User', userSchema);
 module.exports = User;
