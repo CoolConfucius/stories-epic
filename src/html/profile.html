@@ -1,6 +1,6 @@
 <div class="container" id="profile">
   <h6>{{profile}}</h6>
-  <div class="col-xs-12" ng-if="user && profile.username === username">
+  <div class="col-xs-12" ng-if="user && profile.username === user.config.data.username">
     <a ng-click="editprofile()" href="" class="btn edit-profile-btn fa fa-pencil"> Edit Profile</a>
   </div>
 
