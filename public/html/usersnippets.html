@@ -11,7 +11,7 @@
           <a href="#/story/{{snippet.storyid}}">
             {{snippet.storytitle}}
           </a>
-          | on: {{snippet.startdate}} 
+          | on: {{snippet.startdate | date:'MM/dd/yyyy @ h:mma'}} 
         </p>
         <h5>{{snippet.content}}</h5>
       </div>
