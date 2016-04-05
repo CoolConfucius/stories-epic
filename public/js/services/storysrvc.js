@@ -33,4 +33,9 @@ app.service('Story', function($http) {
   this.favorite = function(username, storyid) {
     return $http.put(`/users/addfave/${username}/${storyid}`) 
   }
+
+  this.checkfave = function(username, storyid) {
+    return $http.get(`/users/checkfave/${username}/${storyid}`) 
+  }
+
 });

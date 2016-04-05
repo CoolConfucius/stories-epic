@@ -114,6 +114,18 @@ userSchema.statics.addfavorite = function(username, storyid, cb) {
   });
 }
 
+userSchema.statics.checkfave = function(username, storyid, cb) {
+  User.findOne({ username: username })
+  .exec(function(err, user){
+    if(err) return res.status(400).send(err); 
+    if (user.favorites.indexOf(storyid) === -1) {
+      cb(null, 'false');
+    } else {
+      cb(null, 'true');
+    }
+  });
+}
+
 
 User = mongoose.model('User', userSchema);
 module.exports = User;

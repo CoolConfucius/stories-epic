@@ -34,4 +34,12 @@ router.put('/addfave/:username/:storyid', function(req, res, next) {
   })
 });
 
+router.get('/checkfave/:username/:storyid', function(req, res, next) {
+  User.checkfave(req.params.username, req.params.storyid, function(err, string){
+    if(err) return res.status(400).send(err); 
+    res.send(string); 
+  })
+});
+
+
 module.exports = router;
