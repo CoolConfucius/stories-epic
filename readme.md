@@ -12,6 +12,9 @@ Logged in users can add stories to their favorite stories collection by clicking
 
 When browsing stories, users can narrow down the stories displayed on the homepage by entering a keyword on the Search input. 
 
+Logged in users may edit or delete the stories they have opened by: 
+Entering the story and clicking on the Edit Story button. When that button is clicked, the Delete Story Button would appear. Click on that, and the Confirm delete button would appear. Clicking the Confirm delete button would remove the story along with all the snippets. 
+
 
 
 Enter the description and due date of a task into the input. Hit the Add Todo button to add the task to the list. Hit on the headers to sort the todos. Hit the same header again to reverse the order of the sorting. Toggle the completion status of the task by hitting the button under the header "Complete?". Delete a todo item by hitting the trashbin icon. 
