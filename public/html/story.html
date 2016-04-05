@@ -19,8 +19,7 @@
     <div ng-if="!story.isclosed" class="tag open">Open</div>
     <div ng-if="story.isclosed" class="tag closed">Closed</div>
     <div ng-if="user && !isfave" ng-click="addfavorite(user.config.data.username, story._id)" class="btn favorite fa fa-heart"></div>
-    <div ng-if="user && isfave" ng-click="unfavorite(user.config.data.username, story._id)" class="btn">
-      <span class="glyphicon glyphicon-heart-empty"></span>
+    <div ng-if="user && isfave" ng-click="unfavorite(user.config.data.username, story._id)" class="btn glyphicon glyphicon-heart-empty">
     </div>
   </div>
   <div ng-if="story.startedby === user.config.data.username" class="row">
