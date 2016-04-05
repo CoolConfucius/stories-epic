@@ -29,4 +29,8 @@ app.service('Story', function($http) {
   this.remove = function(storyid) {
     return $http.delete(`/stories/${storyid}`)
   };
+
+  this.favorite = function(storyid, username) {
+    
+  }
 });
