@@ -93,7 +93,14 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       swal("Added to favorites!")
       $scope.isfave = true; 
     })
+  }
 
+  $scope.unfave = function(username, storyid){
+    console.log("storyid", storyid, username);
+    Story.unfave(username, storyid).then(function(){
+      swal("Removed from favorites!")
+      $scope.isfave = false; 
+    })
   }
 
   
