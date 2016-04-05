@@ -1,13 +1,8 @@
 <div class="container">
-  <pre>
-    _id: {{snippet._id}}
-    storytitle: {{snippet.storytitle}}
-    storyid: {{snippet.storyid}}
-    writtenby: {{snippet.writtenby}}
-    userid: {{snippet.userid}}
-    startdate: {{snippet.startdate}}
-    content: {{snippet.content}}
-  </pre>
+  <h4>
+    Snippet start date: {{snippet.startdate | date:'MM/dd/yyyy, h:mma'}}
+  </h4>
+  <h3>Snippet content: {{snippet.content}}</h3>
 
   <div class="row">
     <div class="add-snippet col-sm-8 col-sm-offset-2">
