@@ -4,14 +4,14 @@
   </h1>
 
   <div ng-repeat='snippet in profile.snippets'>
-    <h6>{{snippet}}</h6>
+    
     <div class="panel panel-default snippet-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
         <p>Written in: 
           <a href="#/story/{{snippet.storyid}}">
             {{snippet.storytitle}}
           </a>
-          | on: {{snippet.startdate | date:'MM/dd/yyyy @ h:mma'}} 
+          | on: {{snippet.startdate | date:'MM/dd/yyyy, h:mma'}} 
         </p>
         <h5>{{snippet.content}}</h5>
       </div>
