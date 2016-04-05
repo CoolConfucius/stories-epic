@@ -13,6 +13,7 @@ router.get('/:username', function(req, res, next) {
   User.findOne({ username: req.params.username.toString()})
   .populate('stories')
   .populate('snippets')
+  .populate('favorites')
   .exec(function(err, user){
     if(err) return res.status(400).send(err); 
     res.send(user); 
