@@ -44,7 +44,10 @@
     <h6>{{item}}</h6>
     <div ng-class="{closed: item.isclosed }" class="panel panel-default story-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
-        <p>Started by: <a href="#/profile/{{item.startedby}}">{{item.startedby}}</a> | Started on: {{item.short}} | Most recent addition: {{item.recentlong}} by <a href="#/profile/{{item.recentby}}">{{item.recentby}}</a> | {{item.snippets.length}} snippets | {{item.views}} views</p>
+        <p>Started by: 
+          <a ng-if="item.startedby !== 'Anonymous'" href="#/profile/{{item.startedby}}">{{item.startedby}}</a>
+          <span ng-if="item.startedby === 'Anonymous'">Anonymous</span>
+           | Started on: {{item.short}} | Most recent addition: {{item.recentlong}} by <a href="#/profile/{{item.recentby}}">{{item.recentby}}</a> | {{item.snippets.length}} snippets | {{item.views}} views</p>
         <h3>{{item.title}}</h3>
         <h5>{{item.opening}}</h5>
         <a href="#/story/{{item._id}}" class="btn read-story">Read</a>
