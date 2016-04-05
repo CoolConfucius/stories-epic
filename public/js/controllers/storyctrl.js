@@ -17,6 +17,11 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       isclosed: res.data.isclosed ? "Closed" : "Open", 
       opening: res.data.opening
     }
+    if (user) {
+      Story.checkfave(user.config.data.username, storyid).then(function(){
+        console.log("is fave???");
+      })
+    };
   });
 
   $scope.addsnippet = function(snippet, user){
