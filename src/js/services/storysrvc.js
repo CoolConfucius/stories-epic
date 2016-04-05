@@ -1,13 +1,11 @@
 app.service('Story', function($http) {
-  this.stories = function() {
-    console.log("this.stories \n");
+  this.stories = function() {    
     return $http.get('/stories').then(res => {
       this.data = res.data; 
     }); 
   }; 
 
-  this.getStories = function(cb) {
-    console.log("this.getStories \n");
+  this.getStories = function(cb) {    
     return $http.get('/stories').then(res => {
       this.data = res.data; 
       cb();
