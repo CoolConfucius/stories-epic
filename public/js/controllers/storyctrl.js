@@ -18,9 +18,9 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       opening: res.data.opening
     }
     if ($rootScope.user) {
-      Story.checkfave($rootScope.user.config.data.username, storyid).then(function(string){
-        console.log("is fave???", string);
-        $scope.isfave = string === 'true'; 
+      Story.checkfave($rootScope.user.config.data.username, storyid).then(function(res){
+        console.log("is fave???", res.data);
+        $scope.isfave = res.data === 'true'; 
       })
     };
   });
