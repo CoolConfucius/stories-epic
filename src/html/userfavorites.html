@@ -4,7 +4,7 @@
   </h1>
 
   <div ng-repeat='story in profile.favorites'>
-    <h6>{{story}}</h6>
+    
     <div ng-class="{closed: story.isclosed }" class="panel panel-default story-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
         Started on: {{story.short}} | Most recent addition: {{story.recentlong}} by <a href="#/profile/{{story.recentby}}">{{story.recentby}}</a> | {{story.snippets.length}} snippets | {{story.views}} views</p>
