@@ -5,13 +5,12 @@
     <h6>{{snippet}}</h6>
     <div class="panel panel-default snippet-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
-        <p>Written on: {{snippet.startdate}} </p>
-        <h3>
-          Belongs in: 
+        <p>Written in: 
           <a href="#/story/{{snippet.storyid}}">
             {{snippet.storytitle}}
           </a>
-        </h3>
+          | on: {{snippet.startdate}} 
+        </p>
         <h5>{{snippet.content}}</h5>
       </div>
     </div>
