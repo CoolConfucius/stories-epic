@@ -24,7 +24,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
     var newObj; 
     var userdata = null;
     if (user) userdata = user.data;
-    console.log("$scopestorytitle \n \n", $scope.story.title);
+    // console.log("$scopestorytitle \n \n", $scope.story.title);
     newObj = {
       storytitle: $scope.story.title, 
       storyid: storyid,
@@ -32,12 +32,12 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       content: snippet.content, 
       user: userdata
     }
-    console.log("new object, \n", newObj);
+    // console.log("new object, \n", newObj);
     $scope.newsnippet = {
       content: "default content"
     }
     Snippet.add(newObj).then(function(savedSnippet){
-      console.log("new obj", newObj);
+      // console.log("new obj", newObj);
       var writtenby = user ? user.config.data.username : 'Troll'
       $scope.story.snippets.push({
         content: snippet.content, 
@@ -67,10 +67,10 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
 
   $scope.isdeleting = false; 
   $scope.deletestory = function(story, user) {
-    console.log("deletestory!", story, user);
+    // console.log("deletestory!", story, user);
     if (!user) return;
     if (story.startedby !== user.config.data.username) return;
-    console.log("Delete story! Passed error handling");
+    // console.log("Delete story! Passed error handling");
     $scope.isdeleting = !$scope.isdeleting; 
   }
 
