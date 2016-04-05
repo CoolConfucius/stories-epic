@@ -71,26 +71,26 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     $scope.sorttext = key; 
   };
 
-  $scope.privatefilter = false; 
-  $scope.filterisprivate = false; 
+  $scope.closedfilter = false; 
+  $scope.filterisclosed = false; 
   $scope.filter = function(text){
     switch(text){
-      case 'private':
-        $scope.privatefilter = true; 
-        $scope.filterisprivate = true;
+      case 'closed':
+        $scope.closedfilter = true; 
+        $scope.filterisclosed = true;
         break;
-      case 'public':
-        $scope.privatefilter = true; 
-        $scope.filterisprivate = false;
+      case 'open':
+        $scope.closedfilter = true; 
+        $scope.filterisclosed = false;
         break;
       default: 
-        $scope.privatefilter = false; 
+        $scope.closedfilter = false; 
     }
   }
 
   $scope.newstory = {
     title: "Default title",
-    isprivate: "Public",
+    isclosed: "Open",
     opening: "Default starting snippet."
   };
 
@@ -105,7 +105,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     newObj = {
       title: story.title, 
       startdate: Date.now(),
-      isprivate: (story.isprivate === "Private"), 
+      isclosed: (story.isclosed === "Closed"), 
       snippets: [], 
       opening: story.opening, 
       user: userdata
@@ -113,7 +113,7 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
     console.log("new object, \n", newObj);
     $scope.newstory = {
       title: "Default title",
-      isprivate: "Public",
+      isclosed: "Open",
       opening: "Default opening snippet."
     }
     Story.add(newObj).then(function(){
