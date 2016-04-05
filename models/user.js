@@ -44,7 +44,7 @@ userSchema.statics.register = function(user, cb) {
   var username = user.username;
   var password = user.password;
   User.findOne({username: username}, function(err, user){
-    console.log("do we have a problem here? \n", err, user);
+    // console.log("do we have a problem here? \n", err, user);
     // if(err || user) return cb(err || 'Username already taken.');
     if(user) return cb("Username already taken", null);
     // if(err || user) return cb(err, null);
