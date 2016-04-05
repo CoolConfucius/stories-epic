@@ -1,31 +1,26 @@
 app.controller('snippetCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Snippet ) {
   $rootScope.user = $localStorage.token; 
-
-  // console.log("in snippetCtrl");  
+  
   var snippetid = $state.params.snippetid;
   
   $scope.editcontent = '';
 
   Snippet.read(snippetid)
-  .then(function(res) {
-    // console.log("read snippet");
+  .then(function(res) {    
     $scope.snippet = res.data; 
     $scope.editcontent = res.data.content; 
   });
 
-  $scope.savechanges = function(editcontent){
-    // console.log(editcontent);
+  $scope.savechanges = function(editcontent){    
     Snippet.edit(snippetid, editcontent).then(function(){
       $scope.snippet.content = editcontent;
     });
   };
 
   $scope.isdeleting = false; 
-  $scope.deletesnippet = function(snippet, user) {
-    // console.log("deletesnippet snippet!", snippet, user);
+  $scope.deletesnippet = function(snippet, user) {    
     if (!user) return;
-    if (snippet.writtenby !== user.config.data.username) return;
-    // console.log("Delete snippet! Passed error handling");
+    if (snippet.writtenby !== user.config.data.username) return;    
     $scope.isdeleting = !$scope.isdeleting; 
   }
 
