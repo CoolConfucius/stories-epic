@@ -96,7 +96,9 @@ app.controller('mainCtrl', function($rootScope, $localStorage, $scope, $state, $
   $scope.story = {};
 
   $scope.openstory = function(story, user){
-    // console.log(story, "here's the story");
+    if (story.title.length === 0) return swal("Enter a story title!");
+    if (story.opening.length === 0) return swal("Enter a story opening!");
+
     var newObj; 
     var userdata = null;
     if (user) userdata = user.data;
