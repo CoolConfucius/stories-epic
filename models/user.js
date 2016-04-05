@@ -126,7 +126,7 @@ userSchema.statics.addfavorite = function(username, storyid, cb) {
   });
 }
 
-userSchema.statics.unfavorite = function(username, storyid, cb) {
+userSchema.statics.unfave = function(username, storyid, cb) {
   User.findOne({ username: username })
   .exec(function(err, user){
     if(err) return res.status(400).send(err); 
