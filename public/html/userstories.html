@@ -5,7 +5,7 @@
     <h6>{{story}}</h6>
     <div ng-class="{private: story.isprivate }" class="panel panel-default story-preview col-sm-8 col-sm-offset-2">
       <div class="panel-body">
-        <p>Started by: <a href="#/profile/{{story.startedby}}">{{story.startedby}}</a> | Started on: {{story.short}} | Most recent addition: {{story.recentlong}} by <a href="#/profile/{{story.recentby}}">{{story.recentby}}</a> | {{story.snippets.length}} snippets | {{story.views}} views</p>
+        Started on: {{story.short}} | Most recent addition: {{story.recentlong}} by <a href="#/profile/{{story.recentby}}">{{story.recentby}}</a> | {{story.snippets.length}} snippets | {{story.views}} views</p>
         <h3>{{story.title}}</h3>
         <h5>{{story.opening}}</h5>
         <a href="#/story/{{story._id}}" class="btn read-story">Read</a>
