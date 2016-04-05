@@ -4,22 +4,17 @@ var express = require('express');
 var router = express.Router();
 var Story = require('../models/story');
 
-router.get('/', function(req, res, next) {
-  console.log("getting stories");
+router.get('/', function(req, res, next) {  
   Story.find({}, function(err, stories){
-    if(err) return res.status(400).send(err); 
-    // console.log("Found them,", stories);
-    // console.log("Found stories!");
+    if(err) return res.status(400).send(err);         
     res.send(stories); 
   });
 });
 
-router.get('/:storyid', function(req, res, next) {
-  // console.log("getting story with id,", req.params.storyid);
+router.get('/:storyid', function(req, res, next) {  
   Story.findById(req.params.storyid).populate('snippets')
   .exec(function(err, story){
-    if(err) return res.status(400).send(err); 
-    // console.log("Found it,", story);
+    if(err) return res.status(400).send(err);     
     story.views++; 
     story.save(function(err, savedStory){
       res.send(story); 
@@ -27,8 +22,7 @@ router.get('/:storyid', function(req, res, next) {
   });
 });
 
-router.post('/', function(req, res, next) {
-  console.log("post story", req.body);
+router.post('/', function(req, res, next) {  
   Story.add(req.body, function(err, story){
     res.send(err || story);
   });
@@ -46,11 +40,9 @@ router.put('/:storyid', function(req, res, next) {
   });
 });
 
-router.delete('/:storyid', function(req, res, next) {
-  // console.log("post story", req.params.storyid);
+router.delete('/:storyid', function(req, res, next) {  
   Story.findById(req.params.storyid, function(err, story){
-    if(err) return res.status(400).send(err); 
-    console.log("Found one,", story);
+    if(err) return res.status(400).send(err);     
     story.remove(function(err){
       res.status(err ? 400 : 200).send(err || story);
     })
