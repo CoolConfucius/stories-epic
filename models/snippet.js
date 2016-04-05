@@ -36,6 +36,8 @@ snippetSchema.statics.add = function (snippet,  cb) {
     writtenby = "Troll"; 
   }
 
+  console.log("newsnippet story title \n", snippet.storytitle);
+
   var newsnippet = new Snippet({
     storytitle: snippet.storytitle,
     storyid: snippet.storyid,
