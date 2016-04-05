@@ -67,6 +67,7 @@
     <div class="snippet">
       <p class="opening">{{story.opening}} </p>
     </div>
+    <br>
     <div ng-repeat='snippet in story.snippets track by $index' class="snippet">
       <div class="row">
         <a href="#/profile/{{snippet.writtenby}}" class="authorname col-sm-8">{{snippet.writtenby}}</a>
