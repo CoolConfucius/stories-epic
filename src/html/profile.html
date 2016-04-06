@@ -1,3 +1,10 @@
+<span us-spinner="{radius:30, width:8, length: 16}"></span>
+<button ng-click="startAjax()">Start Ajax Call</button>
+<p>
+  <b>Spinner Active: </b>
+  {{spinnerActive}}
+</p>
+
 <div class="container" id="profile">
   
   <div class="col-xs-12" ng-if="user && profile.username === user.config.data.username">
