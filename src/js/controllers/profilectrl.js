@@ -1,4 +1,4 @@
-app.controller('profileCtrl', function($scope, $rootScope, $state, $stateParams, $localStorage, Story, Snippet, Profile ) {
+app.controller('profileCtrl', function($scope, $http, $rootScope, $state, $stateParams, $localStorage, Story, Snippet, Profile ) {
   $rootScope.user = $localStorage.token; 
 
   var profilename = $state.params.profilename;
