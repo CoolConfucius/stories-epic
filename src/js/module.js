@@ -1,6 +1,6 @@
 'use strict'; 
 
-var app = angular.module("app", ["ui.router", "ngStorage"]); 
+var app = angular.module("app", ["ui.router", "ngStorage", 'ngLoadingSpinner']); 
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
