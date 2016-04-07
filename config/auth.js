@@ -10,6 +10,7 @@ var authMiddleware = function(req, res, next) {
   } catch(err) {
     console.log("err:",err);
   }
+  // User find by Id
   req.user = payload;
   next();
 };

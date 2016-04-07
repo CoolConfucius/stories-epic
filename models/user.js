@@ -58,12 +58,13 @@ userSchema.statics.register = function(user, cb) {
         newUser.username = username;
         newUser.password = hash;
         newUser.save(function(err, savedUser){
+          if (err) return cb(err, null);
           savedUser.password = null;
-          User.findOne({username: newUser.username}, function(err, dbUser) {
-            if(err || !dbUser) return cb(err || 'Registration error');
-              dbUser.password = null;
+          // User.findOne({username: newUser.username}, function(err, dbUser) {
+          //   if(err || !dbUser) return cb(err || 'Registration error');
+              // dbUser.password = null;
               cb(null, dbUser);
-          });
+          // });
         });
       });
     });
@@ -94,6 +95,7 @@ userSchema.statics.edit = function(userObj, username, cb) {
     user.contact = userObj.contact; 
     user.location = userObj.location; 
     user.save(function(err, savedUser){
+      user.password = null; 
       if (err) return cb(err);
       cb(null, savedUser); 
     })
