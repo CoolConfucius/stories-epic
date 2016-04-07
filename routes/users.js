@@ -8,6 +8,25 @@ var Story = require('../models/story');
 
 var router = express.Router();
 
+router.post('/register', function(req, res, next){
+  User.register(req.body, function(err, user){    
+    if (user) {
+      var token = user.token();
+      res.status(200).send(token);
+    } else {
+      res.send(err);
+    }
+  });
+})
+
+router.post('/login', function(req, res, next){
+  User.authenticate(req.body, function(err, user){
+    if (err) return res.status(401).send(err);
+    var token = user.token();
+    res.status(200).send(token);
+  });
+})
+
 router.get('/:username', function(req, res, next) {
   User.findOne({ username: req.params.username })
   .populate('stories snippets favorites')
