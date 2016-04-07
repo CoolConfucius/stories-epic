@@ -7,7 +7,7 @@ var expect = chai.expect;
 
 var User = require(path.join(__dirname, '../../models/user')); 
 
-const dbUrl = 'mongodb://localhost/introtoauth-test';
+const dbUrl = 'mongodb://localhost/storiesepic-test';
 
 before(function(done) {
   mongoose.connection.close(function() {

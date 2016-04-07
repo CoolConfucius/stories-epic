@@ -8,7 +8,7 @@ var app = require('../../app');
 var User = require('../../models/user'); 
 
 
-const dbUrl = 'mongodb://localhost/introtoauth-test';
+const dbUrl = 'mongodb://localhost/storiesepic-test';
 
 before(function(done) {
   mongoose.connection.close(function() {
