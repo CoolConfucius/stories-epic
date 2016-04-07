@@ -49,7 +49,7 @@ snippetSchema.statics.add = function (snippet,  cb) {
   newsnippet.save(function(err, savedSnippet) {
     if (err) return cb(err);
     // console.log("\n Savedsnippet storyid",savedSnippet.storyid);
-    // console.log(Story, "adslfjdslkf");
+    // console.log(Story, "Story");
     // Story.findById(savedSnippet.storyid, function(err, story){
       // if (err || !story) return cb('story not found', null);
       // console.log("Here's the story \n", story);
