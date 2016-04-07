@@ -5,6 +5,7 @@ var express = require('express');
 var User = require('../models/user');
 var Snippet = require('../models/snippet');
 var Story = require('../models/story');
+var authMiddleware = require('../config/auth');
 
 var router = express.Router();
 
@@ -51,14 +52,14 @@ router.get('/checkfave/:username/:storyid', function(req, res, next) {
   })
 });
 
-router.put('/addfave/:username/:storyid', function(req, res, next) {
+router.put('/addfave/:username/:storyid', authMiddleware, function(req, res, next) {
   User.addfavorite(req.params.username, req.params.storyid, function(err, user){
     if(err) return res.status(400).send(err); 
     res.send(user); 
   })
 });
 
-router.put('/unfave/:username/:storyid', function(req, res, next) {
+router.put('/unfave/:username/:storyid', authMiddleware, function(req, res, next) {
   User.unfave(req.params.username, req.params.storyid, function(err, user){
     if(err) return res.status(400).send(err); 
     res.send(user); 

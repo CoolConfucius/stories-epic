@@ -11,14 +11,18 @@ var authMiddleware = function(req, res, next) {
     console.log('Payload:', payload);
   } catch(err) {
     console.log("err:",err);
+    // return res.status. should stop right there. more cases than not, we're not gonna call next. 
+    // res.status(400).send(err); 
+    // ^error happens when this line of code is there. 
   }
-  // req.user = payload;
+  req.user = payload;
   // User find by Id
-  User.findbyId(payload._id, function(err, user){
-    req.user = user; 
-    next();
-  }); 
-  // next();
+  // User.findbyId(payload._id, function(err, user){
+  //   if (err) res.status(400).send(err);
+  //   req.user = user; 
+    // next();
+  // }); 
+  next();
 };
 
 module.exports = authMiddleware;

@@ -6,6 +6,7 @@ var moment = require('moment');
 var User = require('../models/user');
 var Snippet = require('../models/snippet');
 var Story = require('../models/story');
+// var authMiddleware = require('../config/auth');
 
 var router = express.Router();
 
@@ -45,6 +46,7 @@ router.get('/:snippetid', function(req, res, next) {
 });
 
 router.put('/:snippetid', function(req, res, next) {
+  // console.log(req.user, "\n req.user");
   Snippet.findById(req.params.snippetid, function(err, snippet){
     if(err) return res.status(400).send(err); 
     snippet.content = req.body.content;  
@@ -55,6 +57,7 @@ router.put('/:snippetid', function(req, res, next) {
 });
 
 router.delete('/:snippetid', function(req, res, next) {
+  // console.log(req.user, "\n req.user");
   Snippet.findById(req.params.snippetid, function(err, snippet){
     if(err) return res.status(400).send(err);     
     snippet.remove(function(err){

@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var Story = require('../models/story');
+// var authMiddleware = require('../config/auth');
 
 router.get('/', function(req, res, next) {  
   Story.find({}, function(err, stories){
@@ -29,6 +30,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.put('/:storyid', function(req, res, next) {
+  // console.log(req.user, "\n req.user");
   Story.findById(req.params.storyid, function(err, story){
     if(err) return res.status(400).send(err); 
     story.title = req.body.title; 

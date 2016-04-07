@@ -7,7 +7,6 @@ var jwt = require('jwt-simple');
 
 var Story = require('../models/story');
 var Snippet = require('../models/snippet');
-var authMiddleware = require('../config/auth');
 
 var Schema = mongoose.Schema;
 var User;
@@ -60,12 +59,8 @@ userSchema.statics.register = function(user, cb) {
         newUser.password = hash;
         newUser.save(function(err, savedUser){
           if (err) return cb(err, null);
-          savedUser.password = null;
-          // User.findOne({username: newUser.username}, function(err, dbUser) {
-          //   if(err || !dbUser) return cb(err || 'Registration error');
-              // dbUser.password = null;
-              cb(null, dbUser);
-          // });
+          savedUser.password = null;          
+            cb(null, savedUser);
         });
       });
     });
