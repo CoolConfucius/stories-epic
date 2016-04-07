@@ -7,6 +7,7 @@ var jwt = require('jwt-simple');
 
 var Story = require('../models/story');
 var Snippet = require('../models/snippet');
+var authMiddleware = require('../config/auth');
 
 var Schema = mongoose.Schema;
 var User;
