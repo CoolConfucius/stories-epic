@@ -36,7 +36,7 @@ app.controller('storyCtrl', function($scope, $rootScope, $state, $stateParams, $
       user: userdata
     }    
     $scope.newsnippet = {
-      content: "default content"
+      content: ""
     }
     Snippet.add(newObj).then(function(savedSnippet){      
       var writtenby = user ? user.config.data.username : 'Anonymous'
